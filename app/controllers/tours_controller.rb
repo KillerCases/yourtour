@@ -69,6 +69,6 @@ class ToursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
-      params.require(:tour).permit(:created_at, :name, :description_short)
+      params.require(:tour).permit(:created_at, :name, :short_description)
     end
 end
