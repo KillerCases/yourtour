@@ -16,7 +16,7 @@
       <tbody>
         <% @tours.each do |tour| %>
           <tr>
-            <td><%= tour.created_at %></td>
+            <td><%= tour.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= tour.name %></td>
             <td><%= tour.short_description %></td>
             <td><%= link_to 'Show', tour, class: 'btn btn-mini' %></td>
