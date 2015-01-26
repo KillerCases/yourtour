@@ -1,6 +1,5 @@
 class Tour < ActiveRecord::Base
-  
-#   attr_reader :name
+
  
   validates :name, presence: true, uniqueness: true
  
@@ -10,10 +9,6 @@ class Tour < ActiveRecord::Base
     where("name like ?", "%#{query}%") 
   end
   
- 
-#   def initialize(params)
-#     params ||= {}
-#     @name = parsed_date(params[:date_from], 7.days.ago.to_date.to_s)
-#   end
+
   
 end
