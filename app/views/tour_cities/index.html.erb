@@ -1,0 +1,27 @@
+<h1>Listing tour_cities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tour_cities.each do |tour_city| %>
+      <tr>
+        <td><%= tour_city.city %></td>
+        <td><%= tour_city.country %></td>
+        <td><%= link_to 'Show', tour_city %></td>
+        <td><%= link_to 'Edit', edit_tour_city_path(tour_city) %></td>
+        <td><%= link_to 'Destroy', tour_city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tour city', new_tour_city_path %>

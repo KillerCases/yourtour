@@ -37,6 +37,12 @@
       <%= collection_select( :tour, :tour_guide_id, TourGuide.all, :id, :name, {:multiple => false})%>
     </div>
   </div>
+  <div class='control-group'>
+    <%= f.label :tour_city, class: 'control-label'%><br>
+    <div class = "controls">
+      <%= collection_select( :tour, :tour_city_id, TourCity.all, :id, :city, {:multiple => false})%>
+    </div>
+  </div>
     <div class="actions">
       <div class = "controls">
         <%= f.submit "Submit", class: 'btn btn-default' %>

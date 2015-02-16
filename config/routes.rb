@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tour_cities
+
   resources :tour_guides
 
   devise_for :users

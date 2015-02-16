@@ -1,5 +1,6 @@
 class Tour < ActiveRecord::Base
   belongs_to :tour_guide
+  belongs_to :tour_city
  
   validates :name, presence: true, uniqueness: true
  

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @tour_city.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @tour_city.country %>
+</p>
+
+<%= link_to 'Edit', edit_tour_city_path(@tour_city) %> |
+<%= link_to 'Back', tour_cities_path %>
