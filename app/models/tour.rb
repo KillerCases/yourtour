@@ -1,5 +1,5 @@
 class Tour < ActiveRecord::Base
-
+  belongs_to :tour_guide
  
   validates :name, presence: true, uniqueness: true
  

@@ -15,5 +15,10 @@
   <%= @tour.short_description %>
 </p>
 
+<p>
+  <strong>Tour Guide:</strong>
+  <%= @tour.tour_guide.name %>
+</p>
+
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>

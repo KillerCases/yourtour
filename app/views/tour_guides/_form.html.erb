@@ -1,0 +1,25 @@
+<%= form_for(@tour_guide) do |f| %>
+  <% if @tour_guide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tour_guide.errors.count, "error") %> prohibited this tour_guide from being saved:</h2>
+
+      <ul>
+      <% @tour_guide.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
