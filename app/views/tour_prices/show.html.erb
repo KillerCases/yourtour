@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tour_price.name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @tour_price.duration %>
+</p>
+
+<p>
+  <strong>Price adult:</strong>
+  <%= @tour_price.price_adult %>
+</p>
+
+<p>
+  <strong>Price child:</strong>
+  <%= @tour_price.price_child %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @tour_price.currency %>
+</p>
+
+<%= link_to 'Edit', edit_tour_price_path(@tour_price) %> |
+<%= link_to 'Back', tour_prices_path %>

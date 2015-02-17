@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duration: 1
+  price_adult: 9.99
+  price_child: 9.99
+  currency: MyString
+
+two:
+  name: MyString
+  duration: 1
+  price_adult: 9.99
+  price_child: 9.99
+  currency: MyString

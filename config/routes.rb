@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tour_prices
+
   resources :tour_cities
 
   resources :tour_guides
