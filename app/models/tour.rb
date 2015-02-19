@@ -11,6 +11,12 @@ class Tour < ActiveRecord::Base
     where("name like ?", "%#{query}%") 
   end
   
-
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Tour.create! row.to_hash
+    end
+  end
+  
+    
   
 end

@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get "welcome/contact"
   get "welcome/faq"
   
-  resources :tours
+  resources :tours do 
+    collection { post :import}
+  end
 
   root to: 'tours#index'
   

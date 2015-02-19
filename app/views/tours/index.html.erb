@@ -39,4 +39,10 @@
 </div>
 <br>
 
+<h3> Import Tours </h3>
+<%= form_tag import_tours_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload Tours" %>
+<% end %>
+
 <%= link_to 'New Tour', new_tour_path %>
