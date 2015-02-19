@@ -31,9 +31,30 @@
 </p>
 
 <p>
-  <strong>Tour City:</strong>
+  <strong>Meeting Point Description:</strong>
+  <%= @tour.meeting_point_description %>
+</p>
+
+<p>
+  <strong>Meeting Point Latitude:</strong>
+  <%= @tour.meeting_point_latitude %>
+</p>
+
+<p>
+  <strong>Meeting Point Longitude:</strong>
+  <%= @tour.meeting_point_longitude %>
+</p>
+
+<p>
+  <strong>Price:</strong>
   <%= @tour.tour_price.name %>
 </p>
+
+<p>
+  <strong>Min Customer Threshold:</strong>
+  <%= @tour.min_customer_threshold %>
+</p>
+
 
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>

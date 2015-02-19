@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219020823) do
+ActiveRecord::Schema.define(version: 20150219022930) do
 
   create_table "tour_cities", force: true do |t|
     t.string   "city"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20150219020823) do
     t.integer  "tour_city_id"
     t.integer  "tour_price_id"
     t.string   "long_description"
+    t.decimal  "meeting_point_latitude"
+    t.decimal  "meeting_point_longitude"
+    t.string   "meeting_point_description"
+    t.integer  "min_customer_threshold"
   end
 
   create_table "users", force: true do |t|

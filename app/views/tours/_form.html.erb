@@ -49,12 +49,36 @@
       <%= collection_select( :tour, :tour_city_id, TourCity.all, :id, :city, {:multiple => false})%>
     </div>
   </div>
+     <div class="control-group">
+       <%= f.label :meeting_point_description, class: 'control-label' %><br>
+      <div class = "controls">
+        <%= f.text_field :meeting_point_description%>
+      </div>
+    </div>
+  <div class="control-group">
+        <%= f.label :meeting_point_latitude, class: 'control-label' %><br>
+      <div class = "controls">
+        <%= f.text_field :meeting_point_latitude%>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :meeting_point_longitude, class: 'control-label' %><br>
+      <div class = "controls">
+        <%= f.text_field :meeting_point_longitude%>
+      </div>
+    </div>
     <div class='control-group'>
       <%= f.label :tour_price, class: 'control-label'%><br>
     <div class = "controls">
       <%= collection_select( :tour, :tour_price_id, TourPrice.all, :id, :name, {:multiple => false})%>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :min_customer_threshold, class: 'control-label' %><br>
+      <div class = "controls">
+        <%= f.text_field :min_customer_threshold%>
+      </div>
+    </div>
     <div class="actions">
       <div class = "controls">
         <%= f.submit "Submit", class: 'btn btn-default' %>
