@@ -28,16 +28,22 @@
     <div class="control-group">
       <%= f.label :short_description, class: 'control-label' %><br>
       <div class = "controls">
-        <%= f.text_field :short_description %>
+        <%= f.text_field :short_description%>
       </div>
     </div>
-  <div class='control-group'>
+    <div class="control-group">
+      <%= f.label :long_description, class: 'control-label' %><br>
+      <div class = "controls">
+        <%= f.text_field :long_description, class:'input-xxlarge'%>
+      </div>
+    </div>
+   <div class='control-group'>
     <%= f.label :tour_guide, class: 'control-label'%><br>
     <div class = "controls">
       <%= collection_select( :tour, :tour_guide_id, TourGuide.all, :id, :name, {:multiple => false})%>
     </div>
-  </div>
-  <div class='control-group'>
+   </div>
+   <div class='control-group'>
     <%= f.label :tour_city, class: 'control-label'%><br>
     <div class = "controls">
       <%= collection_select( :tour, :tour_city_id, TourCity.all, :id, :city, {:multiple => false})%>
