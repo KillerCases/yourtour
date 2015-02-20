@@ -1,26 +1,33 @@
-<h1>Listing tour_guides</h1>
+<h1>Listing Tour Guides</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @tour_guides.each do |tour_guide| %>
-      <tr>
-        <td><%= tour_guide.name %></td>
-        <td><%= tour_guide.description %></td>
-        <td><%= link_to 'Show', tour_guide %></td>
-        <td><%= link_to 'Edit', edit_tour_guide_path(tour_guide) %></td>
-        <td><%= link_to 'Destroy', tour_guide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class='media'>
+  <div class='media-body'>
+    
+    <table class='table table-hover'>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @tour_guides.each do |tour_guide| %>
+          <tr>
+            <td><%= tour_guide.name %></td>
+            <td><%= tour_guide.description %></td>
+            <td><%= link_to 'Show', tour_guide, class: 'btn btn-mini' %></td>
+            <td><%= link_to 'Edit', edit_tour_guide_path(tour_guide), class: 'btn btn-mini btn-success' %></td>
+            <td><%= link_to 'Destroy', tour_guide, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
 
 <br>
 
