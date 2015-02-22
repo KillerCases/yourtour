@@ -11,10 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :calendar_datetime %><br>
-    <%= f.datetime_select :calendar_datetime %>
+  <div class="control-group">
+    <%= f.label :calendar_datetime, class: 'control-label' %><br>
+    <div class = "controls">
+      <%= f.date_select :calendar_datetime %>
+    </div>
   </div>
+
+   <div class='control-group'>
+    <%= f.label :tour, class: 'control-label'%><br>
+    <div class = "controls">
+      <%= collection_select( :calendar, :tour_id, Tour.all, :id, :name, {:multiple => false})%>
+    </div>
+   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

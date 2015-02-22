@@ -42,6 +42,6 @@ class CalendarsController < ApplicationController
     end
 
     def calendar_params
-      params.require(:calendar).permit(:calendar_datetime)
+      params.require(:calendar).permit(:calendar_datetime, :tour_id)
     end
 end

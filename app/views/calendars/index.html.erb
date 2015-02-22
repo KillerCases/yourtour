@@ -1,25 +1,31 @@
-<h1>Listing calendars</h1>
+<h1>Tour Calendar</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Calendar datetime</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='media'>
+  <div class='media-body'>
+     <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>DateTime</th>
+            <th>Tour</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @calendars.each do |calendar| %>
-      <tr>
-        <td><%= calendar.calendar_datetime %></td>
-        <td><%= link_to 'Show', calendar %></td>
-        <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
-        <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @calendars.each do |calendar| %>
+            <tr>
+              <td><%= calendar.calendar_datetime.strftime("%Y-%m-%d %H:%M") %></td>
+              <td><%= calendar.tour.name %></td>
+              <td><%= link_to 'Show', calendar, class: 'btn btn-mini' %></td>
+              <td><%= link_to 'Edit', edit_calendar_path(calendar), class: 'btn btn-mini btn-success' %></td>
+              <td><%= link_to 'Destroy', calendar, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Calendar', new_calendar_path %>
+<%= link_to 'New Calendar Listing', new_calendar_path %>
