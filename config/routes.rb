@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookings
+
   resources :calendars
 
   resources :tour_prices
