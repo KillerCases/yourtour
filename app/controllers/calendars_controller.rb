@@ -5,6 +5,7 @@ class CalendarsController < ApplicationController
 
   def index
     @calendars = Calendar.all
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
     respond_with(@calendars)
   end
 
