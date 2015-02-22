@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Tour Calendar Listing</h1>
 <p>
   <strong>DateTime:</strong>
   <%= @calendar.calendar_datetime %>
@@ -8,6 +8,11 @@
 <p>
   <strong>Tour:</strong>
   <%= @calendar.tour.name %>
+</p>
+
+<p>
+  <strong>Tour Description:</strong>
+  <%= @calendar.tour.short_description %>
 </p>
 
 <%= link_to 'Edit', edit_calendar_path(@calendar) %> |

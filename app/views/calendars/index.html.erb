@@ -30,17 +30,21 @@
 
 <%= link_to 'New Calendar Listing', new_calendar_path %>
 
-<h3> Tour Calendar </h3>
-<h2 id='month'>
-  <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
-  <%=h @date.strftime("%B %Y")%>
-  <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
-</h2>
 <div id='calendar'> 
+  <h2 id='month'>
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y")%>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
   <%= calendar_for @calendars, :year => @date.year, :month => @date.month do |t| %>
   <%= t.head('Sun','Mon','Tues','Wed','Thurs','Fri','Sat') %>
   <%= t.day(:day_method => :created_at) do |date, calendars| %>
         <%= date.day %>
+        <ul>
+          <% for calendar in calendars %>
+            <li><%= link_to h(calendar.tour.name), calendar %></li>
+          <%end%>
+        </ul>
        <% end %>
   <% end %>
 </div>
