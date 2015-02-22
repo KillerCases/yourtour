@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219022930) do
+ActiveRecord::Schema.define(version: 20150222012943) do
+
+  create_table "calendars", force: true do |t|
+    t.datetime "calendar_datetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tour_id"
+  end
 
   create_table "tour_cities", force: true do |t|
     t.string   "city"
