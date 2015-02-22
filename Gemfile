@@ -37,3 +37,5 @@ gem 'bootstrap-sass', '~> 2.3.1.0'
 
 gem 'devise'
 
+gem "watu_table_builder", :require => "table_builder"
+
