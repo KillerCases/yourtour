@@ -12,8 +12,9 @@ class BookingsController < ApplicationController
     respond_with(@booking)
   end
 
-  def new
-    @booking = Booking.new
+  def new 
+    @calendar = params[:calendar_id]
+    @booking = Booking.new(booking_params)
     respond_with(@booking)
   end
 
@@ -21,6 +22,8 @@ class BookingsController < ApplicationController
   end
 
   def create
+#     @calendar = Calendar.find(params[:calendar_id]).id
+#     @calendar = params[:calendar_id]
     @booking = Booking.new(booking_params)
     @booking.save
     respond_with(@booking)
@@ -42,6 +45,8 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params[:booking]
+      params.permit(:user_id, :calendar_id)
+#       params.require(:booking).permit(:user_id, :calendar_id)
+#       params[:booking]
     end
 end

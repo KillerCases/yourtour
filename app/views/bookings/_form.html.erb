@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+<p>Test with params</p>
+<%= params[:calendar_id]%>
+<p>Test with find method</p>
+<%= Calendar.find(params[:calendar_id]).id %>
+<p>TEst with instance variable</p>
+<%= @calendar %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
