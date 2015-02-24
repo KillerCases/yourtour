@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Customer Booking</h1>
+
+<p>
+  <strong>Tour:</strong>
+  <%= @booking.calendar.tour.name %>
+</p>
+
+<p>
+  <strong>Date Time:</strong>
+  <%= @booking.calendar.calendar_datetime %>
+</p>
+
+<p>
+  <strong>Calendar ID:</strong>
+  <%= @booking.calendar.id %>
+</p>
+
+<p>
+  <strong>User Email:</strong>
+  <%= @booking.user.email %>
+</p>
+
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>

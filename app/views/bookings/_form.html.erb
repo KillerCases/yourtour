@@ -11,14 +11,29 @@
     </div>
   <% end %>
 
-<p>Test with params</p>
-<%= params[:calendar_id]%>
-<p>Test with find method</p>
-<%= Calendar.find(params[:calendar_id]).id %>
-<p>TEst with instance variable</p>
-<%= @calendar %>
+<p>
+  <strong>DateTime:</strong>
+  <%= @calendar.calendar_datetime %>
+</p>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<p>
+  <strong>Tour:</strong>
+  <%= @calendar.tour.name %>
+</p>
+
+<p>
+  <strong>Tour Description:</strong>
+  <%= @calendar.tour.short_description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @calendar.tour.tour_price.price_adult %>
+</p>
+
+<%= link_to 'Create a booking', {:controller => "bookings", 
+                       :action => "create", 
+                       :calendar_id => @calendar.id,
+                       :user_id => current_user.id},
+                       :method => "post" %>
 <% end %>
