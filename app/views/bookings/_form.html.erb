@@ -31,9 +31,29 @@
   <%= @calendar.tour.tour_price.price_adult %>
 </p>
 
+<div class='field'>
+  <%= label_tag :card_number, "Credit Card number" %>
+  <%= text_field_tag :card_number, nil, name: nil %>
+</div>
+
+<div class='field'>
+  <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+  <%= text_field_tag :card_code, nil, name: nil %>
+</div>
+
+<div class='field'>
+  <%= label_tag :card_month, "Card Expiration" %>
+  <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: 'card_year'}
+</div>
+
+
+
 <%= link_to 'Create a booking', {:controller => "bookings", 
                        :action => "create", 
                        :calendar_id => @calendar.id,
                        :user_id => current_user.id},
                        :method => "post" %>
 <% end %>
+
+
