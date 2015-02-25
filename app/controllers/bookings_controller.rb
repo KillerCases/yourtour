@@ -22,8 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-#     @calendar = Calendar.find(params[:calendar_id]).id
-#     @calendar = params[:calendar_id]
     @booking = Booking.new(booking_params)
     @booking.save
     respond_with(@booking)
