@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :tour_cities
 
   resources :tour_guides
+  
+  resources :charges
 
   devise_for :users
   get "welcome/index"
@@ -21,5 +23,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'tours#index'
+  
   
 end

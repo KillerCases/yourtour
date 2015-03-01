@@ -39,5 +39,7 @@ gem 'devise'
 
 gem "watu_table_builder", :require => "table_builder"
 
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'figaro'
 
