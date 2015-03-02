@@ -15,8 +15,6 @@
         <tbody>
           <% @bookings.each do |booking| %>
             <tr>
-              <td><%= booking.calendar.tour.name %></td>
-              <td><%= booking.calendar.calendar_datetime %></td>
               <td><%= booking.user.email %></td>
               <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
               <td><%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-mini btn-success' %></td>
