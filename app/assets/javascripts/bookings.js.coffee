@@ -5,27 +5,30 @@ jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   booking.setupForm()
 
-booking = 
+booking =
   setupForm: ->
     $('#new_booking').submit ->
       $('input[type=submit]').attr('disabled', true)
-      booking.processCard()
-      false
-      
+      if $('#card_number').length
+        booking.processCard()
+        false
+      else
+        true
+  
   processCard: ->
-    card = 
+    card =
       number: $('#card_number').val()
       cvc: $('#card_code').val()
       expMonth: $('#card_month').val()
       expYear: $('#card_year').val()
     Stripe.createToken(card, booking.handleStripeResponse)
-        
+  
   handleStripeResponse: (status, response) ->
     if status == 200
-      alert(response.id)
+      $('#booking_stripe_card_token').val(response.id)
+      $('#new_booking')[0].submit()
     else
-    $('#stripe_error').text(response.error.message)
-    $('input[type=submit]').attr('disabled', false)
-            
+      $('#stripe_error').text(response.error.message)
+      $('input[type=submit]').attr('disabled', false)
               
     

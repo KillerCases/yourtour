@@ -22,9 +22,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.save
-    respond_with(@booking)
+#     @booking = Booking.new(booking_params)
+#     @booking.save
+#     respond_with(@booking)
+    
+ @booking = Booking.new(params[:booking_params])
+  if @booking.save_with_payment
+    redirect_to @booking, :notice => "Thank you for subscribing!"
+  else
+    render :new
+  end
   end
 
   def update
@@ -43,7 +50,7 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params.permit(:user_id, :calendar_id)
+      params.permit(:user_id, :calendar_id, :stripe_card_token)
 #       params.require(:booking).permit(:user_id, :calendar_id)
 #       params[:booking]
     end
