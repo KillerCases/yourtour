@@ -15,5 +15,7 @@ rescue Stripe::InvalidRequestError => e
   errors.add :base, "There was a problem with your credit card."
   false
 end
+
+
   
 end

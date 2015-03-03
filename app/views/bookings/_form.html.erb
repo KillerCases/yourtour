@@ -13,11 +13,8 @@
 
 
 <%= f.hidden_field :stripe_card_token %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
-<div class="field">
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %>
-</div>
 <div class="field">
   <%= f.label :calendar_id %>
   <%= f.text_field :calendar_id %>
@@ -43,6 +40,6 @@
   <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 </div>
   <div class="actions">
-    <%= f.submit "Subscribe" %>
+    <%= f.submit "Book Now" %>
   </div>
 <% end %>
