@@ -13,8 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def new 
-    @calendar = Calendar.find(params[:calendar_id])
-    @booking = Booking.new(booking_params)
+#     @calendar = Calendar.find(params[:calendar_id])
+    @booking = Booking.new
     respond_with(@booking)
   end
 

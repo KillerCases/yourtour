@@ -6,7 +6,7 @@ class Booking < ActiveRecord::Base
 
 def save_with_payment
   if valid?
-    customer = Stripe::Customer.create(description: 'current_user.id', plan: calendar_id, card: stripe_card_token)
+    customer = Stripe::Customer.create(description: 'test', card: stripe_card_token)
     self.stripe_customer_token = customer.id
     save!
   end
