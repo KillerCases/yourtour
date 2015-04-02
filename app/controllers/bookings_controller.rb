@@ -13,8 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def new 
-    @calendar = Calendar.find(params[:calendar_id])
-    @booking = Booking.new(booking_params)
+#     @calendar = Calendar.find(params[:calendar_id])
+    @booking = Booking.new
     respond_with(@booking)
   end
 
@@ -22,11 +22,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-#     @calendar = Calendar.find(params[:calendar_id]).id
-#     @calendar = params[:calendar_id]
-    @booking = Booking.new(booking_params)
-    @booking.save
-    respond_with(@booking)
+#     @booking = Booking.new(booking_params)
+#     @booking.save
+#     respond_with(@booking)
+    
+ @booking = Booking.new(booking_params)
+  if @booking.save_with_payment
+    redirect_to @booking, :notice => "Thank you for your booking!"
+  else
+    render :new
+  end
+    
   end
 
   def update
@@ -45,8 +51,8 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params.permit(:user_id, :calendar_id)
-#       params.require(:booking).permit(:user_id, :calendar_id)
+#       params.permit(:booking, :user_id, :calendar_id, :stripe_card_token)
+        params.require(:booking).permit(:user_id, :calendar_id, :stripe_card_token)
 #       params[:booking]
     end
 end
