@@ -4,6 +4,9 @@ class Tour < ActiveRecord::Base
   belongs_to :tour_price
  
   validates :name, presence: true, uniqueness: true
+  validates :tour_image,
+    attachment_content_type: { content_type: /\Aimage\/.*\Z/ },
+    attachment_size: { less_than: 5.megabytes }
  
   # It returns the articles whose titles contain one or more words that form the query
   def self.search(query)
@@ -23,9 +26,6 @@ class Tour < ActiveRecord::Base
     square: '200x200#',
     medium: '300x300>'
   }
-
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :tour_image, :content_type => /\Aimage\/.*\Z/
   
   
 end
