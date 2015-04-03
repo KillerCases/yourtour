@@ -9,6 +9,7 @@ group :production do
 end
 
 group :development do
+  gem 'figaro'
   gem 'sqlite3'
 end
 
