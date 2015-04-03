@@ -1,4 +1,4 @@
-<%= form_for(@tour_guide) do |f| %>
+<%= form_for @tour_guide, html: { class: 'form-horizontal', multipart: true } do |f| %>
   <% if @tour_guide.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tour_guide.errors.count, "error") %> prohibited this tour_guide from being saved:</h2>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :tour_guide_image %>
+    <%= f.file_field :tour_guide_image %>
   </div>
   <div class="actions">
     <%= f.submit %>

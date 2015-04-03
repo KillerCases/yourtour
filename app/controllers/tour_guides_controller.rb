@@ -42,6 +42,6 @@ class TourGuidesController < ApplicationController
     end
 
     def tour_guide_params
-      params.require(:tour_guide).permit(:name, :description)
+      params.require(:tour_guide).permit(:name, :description, :tour_guide_image)
     end
 end
