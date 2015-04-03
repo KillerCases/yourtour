@@ -55,8 +55,9 @@
   <%= @tour.min_customer_threshold %>
 </p>
 
-
-
+<p>
+  <%= image_tag @tour.tour_image.url(:square) %>
+</p>
 
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>
