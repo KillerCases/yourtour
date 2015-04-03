@@ -39,12 +39,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   
-    config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-    :bucket => ENV['your-tour-images'],
-    :access_key_id => ENV['AKIAJIQGY7CYN5CCNX2A'],
-    :secret_access_key => ENV['8eglzk7wbDRDfP7f0VxIZEvKpOvzEUy/D0CvCkJP']
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['S3_BUCKET_NAME'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
   
