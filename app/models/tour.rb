@@ -17,6 +17,15 @@ class Tour < ActiveRecord::Base
     end
   end
   
-    
+  # This method associates the attribute ":tour_image" with a file attachment
+  has_attached_file :tour_image, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :tour_image, :content_type => /\Aimage\/.*\Z/
+  
   
 end

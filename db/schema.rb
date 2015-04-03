@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302022646) do
+ActiveRecord::Schema.define(version: 20150403142243) do
 
   create_table "bookings", force: true do |t|
     t.datetime "created_at"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 20150302022646) do
     t.decimal  "meeting_point_longitude"
     t.string   "meeting_point_description"
     t.integer  "min_customer_threshold"
+    t.string   "tour_image_file_name"
+    t.string   "tour_image_content_type"
+    t.integer  "tour_image_file_size"
+    t.datetime "tour_image_updated_at"
   end
 
   create_table "users", force: true do |t|
