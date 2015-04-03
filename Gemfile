@@ -42,5 +42,5 @@ gem "watu_table_builder", :require => "table_builder"
 gem 'stripe'
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
