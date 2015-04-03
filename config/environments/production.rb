@@ -80,4 +80,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['your-tour-images'],
+    :access_key_id => ENV['AKIAJIQGY7CYN5CCNX2A'],
+    :secret_access_key => ENV['8eglzk7wbDRDfP7f0VxIZEvKpOvzEUy/D0CvCkJP']
+  }
+}
+  
 end
