@@ -1,8 +1,8 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="span12">
-      <h1>Your Local Guide</h1>
-      <h2>Discover the world the way others see it</h2>
+  <div class="row header-panel">
+    <div class="col-md-12">
+      <h1><strong>Your Local Guide</strong></h1>
+      <h1><small>Discover the world the way others see it</small></h1>
     </div>
   </div>
   
@@ -11,25 +11,32 @@
     </div>
   </div>
   
-  <div class="row">
-    <div class="span12">
+  <div class="row search-panel">
+    <div class="col-md-4">
+      <h4>What interests you?</h4>
+    </div>
+    <div class="col-md-4 search-bar">
+        <div class='pull-right range-query search-bar'>
+          <%= form_tag tours_path, method: :get do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag 'Search', class: 'btn search-btn'%>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-md-4">
     </div>
   </div>
   
-  <div class="row">
+  <div class='row'>
+  </div>
+  
+  <div class="row ">
     <% @tours.each do |tour| %>
-      <div class="col-md-4" >
+      <div class="col-md-4 image-panel">
         <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %>
+        <h4><%= tour.name %></h4>
       </div>
 		<% end %>
   </div>
 
 </div>
-    
-
-
-    
-
-
-
-
