@@ -19,7 +19,7 @@
   <div class="row">
     <% @tours.each do |tour| %>
       <div class="col-md-4" >
-        <img class="img-responsive" src=<%= tour.tour_image.url(:square) %> class="img-polaroid" ></img>
+        <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %>
       </div>
 		<% end %>
   </div>
