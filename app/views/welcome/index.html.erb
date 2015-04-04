@@ -3,27 +3,36 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="span12">
       <p>Your Local Guide</p>
       <p>Discover the world the way others see it</p>
     </div>
   </div>
+  
   <div class="row">
-    <div class="col-md-12">
-      <button class="btn btn-default" type="submit">Button</button>
+    <div class="span12">
     </div>
   </div>
+  
+  <div class="row">
+    <div class="span12">
+    </div>
+  </div>
+  
   <div class="row">
     <% @tours.each do |tour| %>
-      <div class="col-md-1" >
-          <p class="bg-primary">Test</p>
-			    <img src=<%= tour.tour_image.url(:square) %> class="img-responsive" alt="Responsive image"></img>
+      <div class="col-md-4" >
+			    <img src=<%= tour.tour_image.url(:square) %>></img>
       </div>
 		<% end %>
   </div>
-    <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"></div>
-    <div class="col-md-4"></div>
-  </div>
+
 </div>
+    
+
+
+    
+
+
+
+
