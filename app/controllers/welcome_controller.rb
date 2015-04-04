@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @tours = Tour.all
   end
 
   def about

@@ -1,2 +1,35 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="span12">
+      <h1>Your Local Guide</h1>
+      <h2>Discover the world the way others see it</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="span12">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="span12">
+    </div>
+  </div>
+  
+  <div class="row">
+    <% @tours.each do |tour| %>
+      <div class="col-md-4" >
+        <img class="img-responsive" src=<%= tour.tour_image.url(:square) %> class="img-polaroid" ></img>
+      </div>
+		<% end %>
+  </div>
+
+</div>
+    
+
+
+    
+
+
+
+
