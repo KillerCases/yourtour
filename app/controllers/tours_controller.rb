@@ -6,8 +6,8 @@ class ToursController < ApplicationController
   def index
     
     if params[:search_location].present?
-      if params[:search]
-        @tours = Tour.near(params[:search_location], 50) + Tour.search(params[:search]).order("created_at DESC")
+      if params[:search].present?
+        @tours = Tour.near(params[:search_location], 50).search(params[:search]).order("created_at DESC")
       else
         @tours = Tour.near(params[:search_location], 50)
       end
