@@ -66,3 +66,12 @@
 
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>
+
+<h3>Nearby Tours</h3>
+<ul>
+<% for tour in @tour.nearbys(10) %>
+  <li><%= link_to tour.name, tour %> (<%= tour.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+

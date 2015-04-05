@@ -5,12 +5,18 @@ class ToursController < ApplicationController
   # GET /tours.json
   def index
     
-    if params[:search]
+    if params[:search_location].present?
+      if params[:search]
+        @tours = Tour.near(params[:search_location], 50) + Tour.search(params[:search]).order("created_at DESC")
+      else
+        @tours = Tour.near(params[:search_location], 50)
+      end
+    elsif params[:search]
       @tours = Tour.search(params[:search]).order("created_at DESC")
     else
-      @tours = Tour.order("created_at DESC")
+      @tours = Tour.all
     end
-    
+        
   end
 
   # GET /tours/1

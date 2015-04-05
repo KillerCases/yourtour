@@ -7,6 +7,13 @@
     <%= submit_tag 'Search', class: 'btn search-btn'%>
     <% end %>
   </div>
+
+  <div class='pull-right range-query'>
+    <%= form_tag tours_path, method: :get do %>
+    <%= text_field_tag :search_location, params[:search_location] %>
+    <%= submit_tag 'Search by Location', class: 'btn search-btn'%>
+    <% end %>
+  </div>
 </div>
 
 <div class='media'>
