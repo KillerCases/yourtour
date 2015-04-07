@@ -3,8 +3,8 @@
   <h1>Tours</h1>
   <div class='pull-right range-query'>
     <%= form_tag tours_path, method: :get do %>
-    <%= text_field_tag :search_location, params[:search_location] %>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search_location, params[:search_location], :placeholder => "Location" %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Interest" %>
     <%= submit_tag 'Search', class: 'btn search-btn'%>
     <% end %>
   </div>
