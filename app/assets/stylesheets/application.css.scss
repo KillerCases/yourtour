@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*
+ *= require rails_bootstrap_forms
+ */
+
 #calendar table {
   border-collapse: collapse;
   width: 100%;
