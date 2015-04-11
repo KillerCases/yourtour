@@ -1,4 +1,5 @@
-<%= form_for @tour_guide, html: { class: 'form-horizontal', multipart: true } do |f| %>
+<%= bootstrap_form_for(@tour_guide) do |f| %>
+
   <% if @tour_guide.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tour_guide.errors.count, "error") %> prohibited this tour_guide from being saved:</h2>
@@ -11,19 +12,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :tour_guide_image %>
-    <%= f.file_field :tour_guide_image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.text_field :name, placeholder: "Enter name of tour guide" %>
+  <%= f.text_field :description, placeholder: "Enter description of tour guide" %>
+  <%= f.file_field :tour_guide_image %>
+  <%= f.submit %>
+
 <% end %>
+

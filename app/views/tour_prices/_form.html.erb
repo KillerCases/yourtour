@@ -1,4 +1,5 @@
-<%= form_for(@tour_price) do |f| %>
+<%= bootstrap_form_for(@tour_price) do |f| %>
+
   <% if @tour_price.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tour_price.errors.count, "error") %> prohibited this tour_price from being saved:</h2>
@@ -11,27 +12,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
-  </div>
-  <div class="field">
-    <%= f.label :price_adult %><br>
-    <%= f.text_field :price_adult %>
-  </div>
-  <div class="field">
-    <%= f.label :price_child %><br>
-    <%= f.text_field :price_child %>
-  </div>
-  <div class="field">
-    <%= f.label :currency %><br>
-    <%= f.text_field :currency %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.text_field :name, placeholder: "Enter pricing level name" %>
+  <%= f.number_field :duration, placeholder: "Enter duration of tour in hours" %>
+  <%= f.number_field :price_adult, placeholder: "Enter price for an adult" %>
+  <%= f.number_field :price_child, placeholder: "Enter price for a child" %>
+  <%= f.text_field :currency, placeholder: "Enter currency" %>
+  <%= f.submit %>
+
 <% end %>

@@ -1,7 +1,6 @@
-<div class='row'>
+<%= bootstrap_form_for(@tour) do |f| %>
 
-  <%= form_for @tour, html: { class: 'form-horizontal', multipart: true }  do |f| %>
-    <% if @tour.errors.any? %>
+  <% if @tour.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
 
@@ -13,86 +12,21 @@
       </div>
     <% end %>
 
-    <div class="control-group">
-      <%= f.label :created_at, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.date_select :created_at %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :name, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :name %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :short_description, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :short_description%>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :long_description, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :long_description, class:'input-xxlarge'%>
-      </div>
-    </div>
-   <div class='control-group'>
-    <%= f.label :tour_guide, class: 'control-label'%><br>
-    <div class = "controls">
-      <%= collection_select( :tour, :tour_guide_id, TourGuide.all, :id, :name, {:multiple => false})%>
-    </div>
-   </div>
-   <div class='control-group'>
-    <%= f.label :tour_city, class: 'control-label'%><br>
-    <div class = "controls">
-      <%= collection_select( :tour, :tour_city_id, TourCity.all, :id, :city, {:multiple => false})%>
-    </div>
-  </div>
-     <div class="control-group">
-       <%= f.label :meeting_point_description, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :meeting_point_description%>
-      </div>
-    </div>
-  <div class="control-group">
-    <%= f.label :address, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :address%>
-      </div>
-    </div>
-  <div class="control-group">
-        <%= f.label :latitude, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :latitude%>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :longitude, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :longitude%>
-      </div>
-    </div>
-    <div class='control-group'>
-      <%= f.label :tour_price, class: 'control-label'%><br>
-    <div class = "controls">
-      <%= collection_select( :tour, :tour_price_id, TourPrice.all, :id, :name, {:multiple => false})%>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :min_customer_threshold, class: 'control-label' %><br>
-      <div class = "controls">
-        <%= f.text_field :min_customer_threshold%>
-      </div>
-    </div>
-  <div class="field">
-      <%= f.label :tour_image %>
-      <%= f.file_field :tour_image %>
-  </div>
-    <div class="actions">
-      <div class = "controls">
-        <%= f.submit "Submit", class: 'btn btn-default' %>
-      </div>
-    </div>
-  <% end %>
-</div>
+  <%= f.text_field :name, placeholder: "Enter tour name" %>
+  <%= f.text_field :short_description, placeholder: "Enter short description" %>
+  <%= f.text_field :long_description, placeholder: "Enter long description" %>
+  <%= f.collection_select :tour_guide_id, TourGuide.all, :id, :name %>
+  <%= f.collection_select :tour_city_id, TourCity.all, :id, :city %>
+  <%= f.text_field :meeting_point_description, placeholder: "Enter description of meeting place" %>
+  <%= f.text_field :address, placeholder: "Enter address of meeting point" %>
+  <%= f.text_field :latitude, placeholder: "This field will be automatically filled" %>
+  <%= f.text_field :longitude, placeholder: "This field will be automatically filled" %>
+  <%= f.collection_select :tour_price_id, TourPrice.all, :id, :name %>
+  <%= f.number_field :min_customer_threshold, placeholder: "Min # of customers for tour" %>
+  <%= f.file_field :tour_image %>
+
+  <%= f.submit "Save" %>
+<% end %>
+
+  
+
