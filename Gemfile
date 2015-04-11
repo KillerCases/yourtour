@@ -48,3 +48,5 @@ gem 'aws-sdk', '< 2.0'
 
 gem 'geocoder'
 
+gem 'bootstrap_form'
+
