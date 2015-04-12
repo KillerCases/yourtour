@@ -50,3 +50,5 @@ gem 'geocoder'
 
 gem 'bootstrap_form'
 
+gem 'omniauth-facebook'
+
