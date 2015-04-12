@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   resources :tour_guides
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   get "welcome/index"
   get "welcome/about"
   get "welcome/contact"
