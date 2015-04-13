@@ -52,3 +52,5 @@ gem 'bootstrap_form'
 
 gem 'omniauth-facebook'
 
+gem "omniauth-google-oauth2"
+
