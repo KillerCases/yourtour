@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
+      user.user_image = auth.info.image
     end
   end
 
@@ -20,7 +21,8 @@ class User < ActiveRecord::Base
       unless user
           user = User.create(name: data["name"],
              email: data["email"],
-             password: Devise.friendly_token[0,20]
+             password: Devise.friendly_token[0,20],
+             user_image: data["image"]
           )
       end
       user
