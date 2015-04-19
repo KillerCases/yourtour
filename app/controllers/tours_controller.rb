@@ -15,6 +15,7 @@ class ToursController < ApplicationController
       @tours = Tour.search(params[:search]).order("created_at DESC")
     else
       @tours = Tour.all
+      @date = params[:month] ? Date.parse(params[:month]) : Date.today
     end
         
   end

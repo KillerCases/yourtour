@@ -38,7 +38,7 @@
   </h2>
   <%= calendar_for @calendars, :year => @date.year, :month => @date.month do |t| %>
   <%= t.head('Sun','Mon','Tues','Wed','Thurs','Fri','Sat') %>
-  <%= t.day(:day_method => :created_at) do |date, calendars| %>
+  <%= t.day(:day_method => :calendar_datetime) do |date, calendars| %>
         <%= date.day %>
         <ul>
           <% for calendar in calendars %>
