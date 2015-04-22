@@ -76,13 +76,35 @@
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@tour.latitude}%2C#{@tour.longitude}" %>
 
-<h3>Calendar Listings</h3>
+<!-- <h3>Calendar Listings</h3>
 <ul>
-  <% @calendar_listing = Calendar.where(tour_id: @tour.id) %>
-  <% @calendar_listing.each do |calendar| %>
+
+  <% @calendars.each do |calendar| %>
   <li><%= calendar.calendar_datetime %></li>
   <%end%>
-</ul>
+</ul> -->
+
+<div id='calendar'> 
+  <h2 id='month'>
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y")%>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
+  <%= calendar_for @calendars, :year => @date.year, :month => @date.month do |t| %>
+  <%= t.head('Sun','Mon','Tues','Wed','Thurs','Fri','Sat') %>
+  <%= t.day(:day_method => :calendar_datetime) do |date, calendars| %>
+        <%= date.day %>
+        <ul>
+          <% for calendar in calendars %>
+            <li><%= link_to h(calendar.tour.name), calendar %></li>
+          <%end%>
+        </ul>
+       <% end %>
+  <% end %>
+</div>
+
+
+
 
 
 

@@ -15,14 +15,20 @@ class ToursController < ApplicationController
       @tours = Tour.search(params[:search]).order("created_at DESC")
     else
       @tours = Tour.all
-      @date = params[:month] ? Date.parse(params[:month]) : Date.today
     end
         
   end
+  
+#   def find_calendar
+#       @calendar = Calendar.where(tour_id: @tour.id)
+#   end
+  
 
   # GET /tours/1
   # GET /tours/1.json
   def show
+    @calendars = Calendar.where(tour_id: @tour.id) 
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
   # GET /tours/new
