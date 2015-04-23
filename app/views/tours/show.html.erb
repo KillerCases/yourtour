@@ -96,7 +96,7 @@
         <%= date.day %>
         <ul>
           <% for calendar in calendars %>
-            <li><%= link_to h(calendar.tour.name), calendar %></li>
+            <li><%= link_to h(calendar.tour.name), new_booking_path(:calendar_id => calendar.id) %></li>
           <%end%>
         </ul>
        <% end %>
