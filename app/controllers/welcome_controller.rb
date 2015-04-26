@@ -1,6 +1,17 @@
 class WelcomeController < ApplicationController
+  
   def index
-    @tours = Tour.all
+    if params[:search_location].present?
+      if params[:search].present?
+        @tours = Tour.near(params[:search_location], 50).search(params[:search]).order("created_at DESC")
+      else
+        @tours = Tour.near(params[:search_location], 50)
+      end
+    elsif params[:search]
+      @tours = Tour.search(params[:search]).order("created_at DESC")
+    else
+      @tours = Tour.all
+    end
   end
 
   def about

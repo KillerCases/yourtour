@@ -12,18 +12,19 @@
   </div>
   
   <div class="row search-panel">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h4>What interests you?</h4>
     </div>
-    <div class="col-md-4 search-bar">
-        <div class='pull-right range-query search-bar'>
-          <%= form_tag tours_path, method: :get do %>
-          <%= text_field_tag :search, params[:search] %>
+    <div class="col-md-6 search-bar">
+        <div class='pull-left range-query search-bar'>
+          <%= form_tag welcome_index_path, method: :get do %>
+          <%= text_field_tag :search_location, params[:search_location], :placeholder => "Location" %>
+          <%= text_field_tag :search, params[:search], :placeholder => "Interest" %>
           <%= submit_tag 'Search', class: 'btn search-btn'%>
           <% end %>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
     </div>
   </div>
   

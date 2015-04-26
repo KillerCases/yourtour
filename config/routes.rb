@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     collection { post :import}
   end
 
-  root to: 'tours#index'
+  root to: 'welcome#index'
   
 end
