@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   
   def index
+    
     if params[:search_location].present?
       if params[:search].present?
         @tours = Tour.near(params[:search_location], 50).search(params[:search]).order("created_at DESC")
@@ -13,9 +14,10 @@ class WelcomeController < ApplicationController
       @tours = Tour.all
     end
     
-    @bookings = Booking.all
-    respond_with(@bookings)
-    
+  end
+  
+  def your_bookings
+      @user_bookings = Booking.where(user_id: current_user.id)
   end
 
   def about

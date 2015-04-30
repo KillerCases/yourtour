@@ -1,4 +1,4 @@
-<h1>Listing Bookings</h1>
+<h1>Your Bookings</h1>
 
 <div class='media'>
   <div class='media-body'>
@@ -13,14 +13,13 @@
         </thead>
 
         <tbody>
-          <% @bookings.each do |booking| %>
+          <% @user_bookings.each do |booking| %>
             <tr>
               <td><%= booking.calendar.tour.name %></td>
               <td><%= booking.calendar.calendar_datetime %></td>
               <td><%= booking.user.email %></td>
               <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
-              <td><%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-mini btn-success' %></td>
-              <td><%= link_to 'Destroy', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Cancel', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -29,5 +28,3 @@
 </div>
 
 <br>
-
-<%= link_to 'New Booking', new_booking_path %>
