@@ -1,10 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customer Booking</h1>
+<h1>Tour Booking</h1>
+
+<p>
+  <strong>Customer Name:</strong>
+  <%= @booking.user.name %>
+</p>
 
 <p>
   <strong>Tour:</strong>
   <%= @booking.calendar.tour.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @booking.calendar.tour.short_description %>
 </p>
 
 <p>
@@ -13,14 +23,31 @@
 </p>
 
 <p>
-  <strong>Calendar ID:</strong>
-  <%= @booking.calendar.id %>
+  <strong>Name:</strong>
+  <%= @booking.calendar.tour.name %>
 </p>
 
 <p>
-  <strong>User Email:</strong>
-  <%= @booking.user.email %>
+  <strong># Children:</strong>
+  <%=  %>
 </p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<p>
+  <strong># Adults:</strong>
+  <%=  %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @booking.calendar.tour.tour_price.price_adult %>
+</p>
+
+<p>
+  <strong>Meeting Point:</strong>
+  <%= @booking.calendar.tour.meeting_point_description %>
+</p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
+<br>
+
 <%= link_to 'Back', welcome_your_bookings_path %>

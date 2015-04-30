@@ -18,13 +18,14 @@
               <td><%= booking.calendar.tour.name %></td>
               <td><%= booking.calendar.calendar_datetime %></td>
               <td><%= booking.user.email %></td>
-              <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
-              <td><%= link_to 'Cancel', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', booking, class: 'btn btn-mini'  %></td>
             </tr>
           <% end %>
         </tbody>
     </table>
   </div>
 </div>
+
+<p>Need to cancel? Please email us on xxxxx</p>
 
 <br>
