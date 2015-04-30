@@ -12,6 +12,10 @@ class WelcomeController < ApplicationController
     else
       @tours = Tour.all
     end
+    
+    @bookings = Booking.all
+    respond_with(@bookings)
+    
   end
 
   def about
