@@ -30,7 +30,7 @@
             <td><%= tour.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= tour.name %></td>
             <td><%= tour.short_description %></td>
-            <td><%= link_to 'Show', tour, class: 'btn btn-mini' %></td>
+            <td><%= link_to 'Show', tour, class: 'btn btn-mini' %></td>        
             <td><%= link_to 'Edit', edit_tour_path(tour), class: 'btn btn-mini btn-success' %></td>
             <td><%= link_to 'Destroy', tour, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
           </tr>

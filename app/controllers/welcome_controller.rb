@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   
+  
   def index
     
     if params[:search_location].present?

@@ -2,9 +2,15 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+  
+  load_and_authorize_resource
 
   def index
-    @bookings = Booking.all
+    if can? :manage, @booking
+      @bookings = Booking.all
+    else
+      @bookings = Booking.where(user_id: current_user.id)
+    end
     respond_with(@bookings)
   end
 

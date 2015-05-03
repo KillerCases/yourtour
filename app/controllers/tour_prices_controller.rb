@@ -2,6 +2,8 @@ class TourPricesController < ApplicationController
   before_action :set_tour_price, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+  
+  load_and_authorize_resource
 
   def index
     @tour_prices = TourPrice.all
