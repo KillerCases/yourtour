@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :tour_guides
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :path_prefix => 'my', :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :users
   # This must go after devise_for to avoid conflicts
