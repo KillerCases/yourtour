@@ -13,8 +13,7 @@ class UsersController < ApplicationController
   end
   
   def new
- 
-    super
+
   end
   
   def create
