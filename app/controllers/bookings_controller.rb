@@ -25,7 +25,6 @@ class BookingsController < ApplicationController
   end
 
   def new 
-#     @calendar = Calendar.find(params[:calendar_id])
     @booking = Booking.new
     respond_with(@booking)
   end
@@ -40,10 +39,12 @@ class BookingsController < ApplicationController
 #     respond_with(@booking)
     
   @booking = Booking.new(booking_params)
-  
-  calculate_total
+  @booking.user_id = current_user.id
+  @booking.calendar_id = params[:calendar_id]
+
    
   if @booking.save_with_payment
+    calculate_total
     redirect_to @booking
   else
     render :new

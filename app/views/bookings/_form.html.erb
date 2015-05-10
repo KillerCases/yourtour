@@ -11,8 +11,7 @@
     </div>
   <% end %>
 
-<%= f.text_field :user_id %>
-<%= f.text_field :calendar_id %>
+<%= params[:calendar_id]%>
 <%= f.number_field :count_adult, placeholder: "Number of Adults" %>
 <%= f.number_field :count_child, placeholder: "Number of Children" %>
 <%= f.hidden_field :stripe_card_token %>
