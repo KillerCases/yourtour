@@ -16,10 +16,6 @@ class WelcomeController < ApplicationController
     end
     
   end
-  
-  def your_bookings
-      @user_bookings = Booking.where(user_id: current_user.id)
-  end
 
   def about
   end

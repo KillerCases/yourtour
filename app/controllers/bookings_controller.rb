@@ -15,12 +15,12 @@ class BookingsController < ApplicationController
   end
   
   def calculate_total
-    
-    
+    total_adult = (@booking.count_adult * @booking.calendar.tour.tour_price.price_adult)
+    total_child = (@booking.count_child * @booking.calendar.tour.tour_price.price_child)
+    @booking.total = total_adult + total_child  
   end
 
   def show
-    @booking.total = (@booking.count_adult * @booking.calendar.tour.tour_price.price_adult)+(@booking.count_child * @booking.calendar.tour.tour_price.price_child)
     respond_with(@booking)
   end
 
@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    calculate_total
   end
 
   def create
@@ -38,9 +39,12 @@ class BookingsController < ApplicationController
 #     @booking.save
 #     respond_with(@booking)
     
- @booking = Booking.new(booking_params)
+  @booking = Booking.new(booking_params)
+  
+  calculate_total
+   
   if @booking.save_with_payment
-    redirect_to @booking, :notice => "Thank you for your booking!"
+    redirect_to @booking
   else
     render :new
   end
@@ -48,6 +52,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    calculate_total
     @booking.update(booking_params)
     respond_with(@booking)
   end
