@@ -13,8 +13,14 @@ class BookingsController < ApplicationController
     end
     respond_with(@bookings)
   end
+  
+  def calculate_total
+    
+    
+  end
 
   def show
+    @booking.total = (@booking.count_adult * @booking.calendar.tour.tour_price.price_adult)+(@booking.count_child * @booking.calendar.tour.tour_price.price_child)
     respond_with(@booking)
   end
 
@@ -58,7 +64,7 @@ class BookingsController < ApplicationController
 
     def booking_params
 #       params.permit(:booking, :user_id, :calendar_id, :stripe_card_token)
-        params.require(:booking).permit(:user_id, :calendar_id, :stripe_card_token)
+      params.require(:booking).permit(:user_id, :calendar_id, :stripe_card_token, :count_adult, :count_child, :total)
 #       params[:booking]
     end
 end
