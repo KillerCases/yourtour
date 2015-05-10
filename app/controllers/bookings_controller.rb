@@ -19,6 +19,10 @@ class BookingsController < ApplicationController
     total_child = (@booking.count_child * @booking.calendar.tour.tour_price.price_child)
     @booking.total = total_adult + total_child  
   end
+  
+  def get_calendar
+    returns params[:calendar_id]
+  end
 
   def show
     respond_with(@booking)
@@ -38,17 +42,19 @@ class BookingsController < ApplicationController
 #     @booking.save
 #     respond_with(@booking)
     
-  @booking = Booking.new(booking_params)
-  @booking.user_id = current_user.id
-  @booking.calendar_id = params[:calendar_id]
+    @booking = Booking.new(booking_params)
+    @booking.user_id = current_user.id
+    @booking.calendar_id = params[:calendar_id]
 
-   
-  if @booking.save_with_payment
-    calculate_total
-    redirect_to @booking
-  else
-    render :new
-  end
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to new_charge_path(:booking_id => "3"), notice: 'Please confirm payment' }
+        format.json { render :show, status: :created, location: @booking }
+      else
+        format.html { render :new }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+      end
+    end
     
   end
 
