@@ -29,6 +29,7 @@ class BookingsController < ApplicationController
   end
 
   def new 
+    @calendar = Calendar.find(params[:calendar_id]) 
     @booking = Booking.new
     respond_with(@booking)
   end
@@ -41,20 +42,24 @@ class BookingsController < ApplicationController
 #     @booking = Booking.new(booking_params)
 #     @booking.save
 #     respond_with(@booking)
-    
+
     @booking = Booking.new(booking_params)
+    @calendar = Calendar.find(params[:calendar_id]) 
     @booking.user_id = current_user.id
-    @booking.calendar_id = params[:calendar_id]
+    @booking.calendar_id = @calendar.id
+#     @booking.save
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to new_charge_path(:booking_id => "3"), notice: 'Please confirm payment' }
+        format.html { redirect_to new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+    
+    calculate_total
     
   end
 
@@ -79,4 +84,5 @@ class BookingsController < ApplicationController
       params.require(:booking).permit(:user_id, :calendar_id, :stripe_card_token, :count_adult, :count_child, :total)
 #       params[:booking]
     end
+  
 end

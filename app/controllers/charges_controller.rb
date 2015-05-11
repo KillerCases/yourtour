@@ -6,7 +6,8 @@ class ChargesController < ApplicationController
   end
 
   def create
-
+    @booking = Booking.find(params[:booking_id])
+    @amount = @booking.total*100
     
     customer = Stripe::Customer.create(
       :email => current_user.email,
@@ -16,8 +17,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Your Tour customer',
-      :invoice     => '@booking.id',
+      :description => @booking.id,
       :currency    => 'usd'
     )
 

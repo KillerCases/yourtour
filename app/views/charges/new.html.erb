@@ -10,5 +10,7 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="<%= @booking.calendar.tour.name %>"
           data-amount="<%= @amount %>"></script>
+
+<%= hidden_field_tag :booking_id, @booking.id %>
           
 <% end %>
