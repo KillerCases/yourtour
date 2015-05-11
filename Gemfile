@@ -56,4 +56,3 @@ gem "omniauth-google-oauth2"
 
 gem 'cancancan', '~> 1.10'
 
-gem 'heroku'
