@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => @booking.id,
+      :description => "Booking Reference: #{@booking.id}",  
       :currency    => 'usd'
     )
 
