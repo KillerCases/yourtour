@@ -1,4 +1,16 @@
-<h1>New booking</h1>
+<h1>New Booking for <%=@calendar.tour.name%></h1>
+
+<h2>Tour Details</h2>
+
+<p>
+  <strong>DateTime:</strong>
+  <%= @calendar.calendar_datetime %>
+</p>
+
+<p>
+  <strong>Tour Description:</strong>
+  <%= @calendar.tour.short_description %>
+</p>
 
 <%= render 'form' %>
 

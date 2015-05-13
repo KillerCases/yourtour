@@ -1,5 +1,9 @@
 class ChargesController < ApplicationController
   
+  respond_to :html
+  
+
+  
   def new
     @booking = Booking.find(params[:booking_id])
     @amount = @booking.total
@@ -11,6 +15,7 @@ class ChargesController < ApplicationController
     
     customer = Stripe::Customer.create(
       :email => current_user.email,
+      :description => "User ID: #{@booking.user_id}",
       :card  => params[:stripeToken]
     )
 
@@ -18,9 +23,14 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => "Booking Reference: #{@booking.id}",  
-      :currency    => 'usd'
+      :currency    => 'gbp'
     )
-
+    
+  respond_with(@booking)
+  if charge["paid"] == true
+    @booking.status = 'paid'
+  end
+    
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path

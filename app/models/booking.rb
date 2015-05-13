@@ -3,6 +3,14 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   
   attr_accessor :stripe_card_token
+  
+  STATUS = %w[paid refunded basic]
+  
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :basic
+  end
 
 def save_with_payment
   if valid?
