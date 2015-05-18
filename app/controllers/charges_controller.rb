@@ -1,8 +1,5 @@
 class ChargesController < ApplicationController
   
-  respond_to :html
-  
-
   
   def new
     @booking = Booking.find(params[:booking_id])
@@ -22,11 +19,10 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => "Booking Reference: #{@booking.id}",  
+      :description => "Booking ID: #{@booking.id}",  
       :currency    => 'gbp'
     )
     
-  respond_with(@booking)
   if charge["paid"] == true
     @booking.status = 'paid'
   end

@@ -22,9 +22,18 @@
 
 <p>
   <strong>Total Amount: £</strong>
-  <%= @amount %>
+  <%= @booking.total %>
 </p>
 
-<%= render 'form' %>
+<%= form_tag charges_path do %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @booking.calendar.tour.name %>"
+          data-amount="<%= @amount %>"></script>
+
+<%= hidden_field_tag :booking_id, @booking.id %>
+          
+<% end %>
 
 <%= link_to 'Back', :back %>

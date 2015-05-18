@@ -4,12 +4,12 @@ class Booking < ActiveRecord::Base
   
   attr_accessor :stripe_card_token
   
-  STATUS = %w[paid refunded basic]
+  STATUS = %w[pending paid refunded]
   
-  after_initialize :set_default_role, :if => :new_record?
+  after_initialize :set_default_status, :if => :new_record?
 
-  def set_default_role
-    self.role ||= :basic
+  def set_default_status
+    self.status ||= :pending
   end
 
 def save_with_payment
