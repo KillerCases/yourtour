@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   
-  
+
   def new
     @booking = Booking.find(params[:booking_id])
     @amount = @booking.total
@@ -24,7 +24,7 @@ class ChargesController < ApplicationController
     )
     
   if charge["paid"] == true
-    @booking.status = 'paid'
+    @booking.update_attributes(:status => 'paid')
   end
     
   rescue Stripe::CardError => e
@@ -33,3 +33,4 @@ class ChargesController < ApplicationController
   end
   
 end
+

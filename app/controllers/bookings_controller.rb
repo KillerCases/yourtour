@@ -64,7 +64,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-    calculate_total
     @booking.update(booking_params)
     respond_with(@booking)
   end
@@ -81,7 +80,7 @@ class BookingsController < ApplicationController
 
     def booking_params
 #       params.permit(:booking, :user_id, :calendar_id, :stripe_card_token)
-      params.require(:booking).permit(:user_id, :calendar_id, :stripe_card_token, :count_adult, :count_child, :total)
+      params.require(:booking).permit(:user_id, :calendar_id, :stripe_card_token, :count_adult, :count_child, :total, :status)
 #       params[:booking]
     end
   
