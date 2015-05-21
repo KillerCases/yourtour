@@ -21,9 +21,10 @@
               <td><%= booking.user.email %></td>
               <td><%= booking.status %></td>
               <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
-              <% if can? :manage, @booking %>
-                <td><%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-mini btn-success' %></td>
-                <td><%= link_to 'Destroy', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Cancel', charge_path(:id => booking.id, :booking_id => booking.id), method: :delete, class: 'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>
+               <% if can? :manage, @booking %>
+              
+            
               <% end %>
             </tr>
           <% end %>

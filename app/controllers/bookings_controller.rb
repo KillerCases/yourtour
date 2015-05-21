@@ -17,11 +17,7 @@ class BookingsController < ApplicationController
   def calculate_total
     total_adult = (@booking.count_adult * @booking.calendar.tour.tour_price.price_adult)
     total_child = (@booking.count_child * @booking.calendar.tour.tour_price.price_child)
-    @booking.total = total_adult + total_child  
-  end
-  
-  def get_calendar
-    returns params[:calendar_id]
+    return total_adult + total_child  
   end
 
   def show
@@ -35,7 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    calculate_total
+    
   end
 
   def create
@@ -47,7 +43,7 @@ class BookingsController < ApplicationController
     @calendar = Calendar.find(params[:calendar_id]) 
     @booking.user_id = current_user.id
     @booking.calendar_id = @calendar.id
-    calculate_total
+    @booking.total = calculate_total
     @booking.save
 
     respond_to do |format|
@@ -59,8 +55,7 @@ class BookingsController < ApplicationController
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
-    
-    
+   
   end
 
   def update
@@ -72,6 +67,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     respond_with(@booking)
   end
+ 
 
   private
     def set_booking
