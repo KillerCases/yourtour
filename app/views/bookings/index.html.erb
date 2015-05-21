@@ -23,6 +23,7 @@
               <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
               <td><%= link_to 'Cancel', charge_path(:id => booking.id, :booking_id => booking.id), method: :delete, class: 'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>
                <% if can? :manage, @booking %>
+              <td><%= link_to 'Destroy', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
               
             
               <% end %>

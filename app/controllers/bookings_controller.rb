@@ -60,12 +60,21 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    respond_with(@booking)
+    @booking.total = calculate_total
+    redirect_to new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment'
   end
 
   def destroy
-    @booking.destroy
-    respond_with(@booking)
+    if @booking.status = 'paid'
+      flash[:error] = 'Please refund booking before deleting'
+      redirect_to bookings_path
+    else
+      @booking.destroy
+        respond_to do |format|
+        format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed. Refund is ' }
+        format.json { head :no_content }
+      end
+    end 
   end
  
 

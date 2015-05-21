@@ -12,7 +12,7 @@
   <% end %>
 
 
-  <%= f.select :count_adult, options_for_select(0..50), { prompt: "Select # of Adults" } %>
+  <%= f.select :count_adult, options_for_select(1..50), { prompt: "Select # of Adults" } %>
   <%= f.select :count_child, options_for_select(0..50), { prompt: "Select # of Children" } %>
 
   <%= hidden_field_tag :calendar_id, params[:calendar_id] %>

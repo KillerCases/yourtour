@@ -54,4 +54,8 @@
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
 <br>
 
+<% if @booking.status = 'pending'%>
+<%= link_to "Confirm", edit_booking_path(:id => @booking.id, :calendar_id => @booking.calendar.id)%>
+<%end%>
+
 <%= link_to 'Back', :back %>
