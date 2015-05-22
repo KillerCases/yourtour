@@ -1,4 +1,4 @@
-<h1>Listing Bookings</h1>
+<h1>Your Bookings</h1>
 
 <div class='media'>
   <div class='media-body'>
@@ -7,7 +7,8 @@
           <tr>
             <th>Tour</th>
             <th>Date</th>
-            <th>User Email</th>
+            <th>Adults</th>
+            <th>Children</th>
             <th>Payment Status</th>
             <th colspan="3"></th>
           </tr>
@@ -18,12 +19,13 @@
             <tr>
               <td><%= booking.calendar.tour.name %></td>
               <td><%= booking.calendar.calendar_datetime %></td>
-              <td><%= booking.user.email %></td>
+              <td><%= booking.count_adult %></td>
+              <td><%= booking.count_child %></td>
               <td><%= booking.status %></td>
               <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
               <td><%= link_to 'Cancel', charge_path(:id => booking.id, :booking_id => booking.id), method: :delete, class: 'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>
                <% if can? :manage, @booking %>
-              <td><%= link_to 'Destroy', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
               
             
               <% end %>
@@ -33,7 +35,3 @@
     </table>
   </div>
 </div>
-
-<br>
-
-<%= link_to 'Back', :back %>

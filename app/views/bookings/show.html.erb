@@ -23,11 +23,6 @@
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @booking.calendar.tour.name %>
-</p>
-
-<p>
   <strong>Number of Adults:</strong>
   <%= @booking.count_adult %>
   <strong> @ </strong>
@@ -54,8 +49,12 @@
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
 <br>
 
-<% if @booking.status = 'pending'%>
-<%= link_to "Confirm", edit_booking_path(:id => @booking.id, :calendar_id => @booking.calendar.id)%>
-<%end%>
+<p>
+  <% if @booking.status === 'pending'%>
+    <%= link_to "Confirm", new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment', class: 'btn btn-primary'%>
+  <%end%>
+</p>
 
-<%= link_to 'Back', :back %>
+<p>
+  <%= link_to 'Back', :back %>
+</p>
