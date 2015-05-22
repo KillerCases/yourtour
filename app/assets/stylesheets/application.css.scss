@@ -101,3 +101,40 @@
   margin: 0 auto;
   color:#428bca;
 }
+
+/******************************************
+/* HOMEPAGE -- CINEGRAPH               
+/*******************************************/
+
+.header-panel {
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    ),
+    url(https://ia601004.us.archive.org/5/items/SneakersOnPowerLines/Powerline-Sneakers-960.gif);
+  background-size: cover;
+  height: 50vh;
+}
+
+.title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 5rem;
+  white-space: nowrap;
+}
+h2 {
+  font-size: 3rem;
+}
+p {
+  margin: 0;
+  font-size: 1.3rem;
+}

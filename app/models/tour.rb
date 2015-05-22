@@ -26,7 +26,7 @@ class Tour < ActiveRecord::Base
   has_attached_file :tour_image, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '300x300>'
+    medium: '500x00>'
   }
   
   

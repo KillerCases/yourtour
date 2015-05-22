@@ -1,8 +1,10 @@
 <div class="container-fluid">
   <div class="row header-panel">
-    <div class="col-md-12">
-      <h1><strong>Your Local Guide</strong></h1>
-      <h1><small>Discover the world the way others see it</small></h1>
+     <div class="title">
+        <h1>Your Local Guide</h1>
+        <h2>Discover the world the way others see it</h2>
+    </div>
+    <div class="col-lg-12">
     </div>
   </div>
   
@@ -10,7 +12,6 @@
     <div class="span12">
     </div>
   </div>
-  
   <div class="row search-panel">
     <div class="col-md-3">
       <h4>What interests you?</h4>
@@ -34,7 +35,7 @@
   <div class="row ">
     <% @tours.each do |tour| %>
       <div class="col-md-4 image-panel">
-        <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %>
+        <%= link_to(image_tag(tour.tour_image.url(:medium)), tour_path(tour.id)) %>
         <h4><%= tour.name %></h4>
       </div>
 		<% end %>
