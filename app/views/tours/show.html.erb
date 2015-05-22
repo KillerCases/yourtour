@@ -85,7 +85,11 @@
         <%= date.day %>
         <ul>
           <% for calendar in calendars %>
-            <li><%= link_to h(calendar.tour.name), new_booking_path(:calendar_id => calendar.id) %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to h(calendar.tour.name), new_booking_path(:calendar_id => calendar.id) %></li>
+              <% else %>
+                <li><%= link_to h(calendar.tour.name), new_user_registration_path %></li>
+              <% end %>
           <%end%>
         </ul>
        <% end %>

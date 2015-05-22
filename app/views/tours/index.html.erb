@@ -2,11 +2,17 @@
 
   <h1>Tours</h1>
   <div class='pull-right range-query'>
-    <%= form_tag tours_path, method: :get do %>
-    <%= text_field_tag :search_location, params[:search_location], :placeholder => "Location" %>
-    <%= text_field_tag :search, params[:search], :placeholder => "Interest" %>
-    <%= submit_tag 'Search', class: 'btn search-btn'%>
-    <% end %>
+      <div class='pull-left range-query search-bar'>
+            <%= form_tag tours_path, method: :get, :class => "form-inline" do %>
+              <div class='form-group'>
+                <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
+             </div>
+             <div class='form-group'>
+              <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Interest" %>
+             </div>
+              <%= submit_tag 'Search', class: 'btn search-btn'%>
+              <% end %>
+        </div>
   </div>
 
 </div>

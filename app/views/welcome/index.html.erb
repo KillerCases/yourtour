@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row header-panel">
      <div class="title">
         <h1>Your Local Guide</h1>
@@ -17,17 +17,24 @@
       <h4>What interests you?</h4>
     </div>
     <div class="col-md-6 search-bar">
-        <div class='pull-left range-query search-bar'>
-          <%= form_tag welcome_index_path, method: :get do %>
-          <%= text_field_tag :search_location, params[:search_location], :placeholder => "Location" %>
-          <%= text_field_tag :search, params[:search], :placeholder => "Interest" %>
-          <%= submit_tag 'Search', class: 'btn search-btn'%>
-          <% end %>
+       <div class='pull-left range-query search-bar'>
+            <%= form_tag welcome_index_path, method: :get, :class => "form-inline" do %>
+              <div class='form-group'>
+                <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
+             </div>
+             <div class='form-group'>
+              <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Interest" %>
+             </div>
+              <%= submit_tag 'Search', class: 'btn search-btn'%>
+              <% end %>
         </div>
     </div>
+    
     <div class="col-md-3">
     </div>
   </div>
+  
+  <div class='container-fluid'>
   
   <div class='row'>
   </div>
@@ -35,11 +42,12 @@
   <div class="row ">
     <% @tours.each do |tour| %>
       <div class="col-md-4 image-panel">
-        <%= link_to(image_tag(tour.tour_image.url(:medium)), tour_path(tour.id)) %>
+        <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %>
         <h4><%= tour.name %></h4>
       </div>
 		<% end %>
   </div>
   
 
+</div>
 </div>
