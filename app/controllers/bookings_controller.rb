@@ -48,23 +48,28 @@ class BookingsController < ApplicationController
     
     @calendar = Calendar.find(params[:calendar_id]) 
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user.id
-    @booking.calendar_id = @calendar.id
-    @booking.total = calculate_total
-    @booking.save
-      
     
+    if @booking.count_adult.blank? 
+        flash[:error] = "Please select number of adults"
+        redirect_to new_booking_path(:calendar_id => @calendar.tour.id)
+    else
+        @booking.user_id = current_user.id
+        @booking.calendar_id = @calendar.id
+        @booking.total = calculate_total
+        @booking.save
 
-      respond_to do |format|
-        if @booking.save 
-          format.html { redirect_to new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment' }
-          format.json { render :show, status: :created, location: @booking }
-        else
-          format.html { render :new }
-          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          if @booking.save 
+            format.html { redirect_to new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment' }
+            format.json { render :show, status: :created, location: @booking }
+          else
+            format.html { render :new }
+            format.json { render json: @booking.errors, status: :unprocessable_entity }
+          end  
         end
-        
+      
     end
+    
   end
 
   def update
