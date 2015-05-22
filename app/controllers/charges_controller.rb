@@ -35,28 +35,25 @@ class ChargesController < ApplicationController
   def destroy
     @booking = Booking.find(params[:booking_id])
     
-    if @booking.status = 'paid' && @booking.calendar.calendar_datetime > Date.today
+    if @booking.status === 'paid' && @booking.calendar.calendar_datetime > Date.today
       @charge = @booking.stripe_charge_id
       ch = Stripe::Charge.retrieve(@charge)
       refund = ch.refunds.create
       @booking.update_attributes(:status => 'refunded')
       flash[:alert] = "This booking has been cancelled"
       redirect_to bookings_path
-    elsif @booking.status = 'paid' && @booking.calendar.calendar_datetime < Date.today
-      flash[:error] = "This booking cannot be canceled as it occured in the past"
+    elsif @booking.status === 'paid' && @booking.calendar.calendar_datetime < Date.today
+      flash[:error] = "This booking cannot be cancelled as it occured in the past"
       redirect_to bookings_path
-    elsif @booking.status = 'refunded'
-      flash[:error] = "This booking has already been cancelled"
+    elsif @booking.status === 'refunded'
+      flash[:error] = "This booking has already been cancelled and refunded."
       redirect_to bookings_path
-    elsif @booking.status = 'pending'
-      flash[:error] = "This booking has not been confirmed"
+    elsif @booking.status === 'pending'
+      flash[:error] = "This booking has not yet been confirmed and no payment has been taken."
       redirect_to bookings_path
-    end
-
-    
+    end 
   end
 
-  
   
 end
 

@@ -77,7 +77,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    if @booking.status = 'paid'
+    if @booking.status === 'paid'
       flash[:error] = 'Please refund booking before deleting'
       redirect_to bookings_path
     else
