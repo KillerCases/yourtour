@@ -15,7 +15,5 @@
   <%= @calendar.tour.short_description %>
 </p>
 
-<%= link_to 'Create a booking', new_booking_path(:calendar_id => @calendar.id) %>
-<br>
 <%= link_to 'Edit', edit_calendar_path(@calendar) %>
 <%= link_to 'Back', calendars_path %>

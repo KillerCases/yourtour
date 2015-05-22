@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :bookings
+  
+  resources :charges
 
   resources :calendars
 

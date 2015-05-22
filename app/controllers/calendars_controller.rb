@@ -21,6 +21,7 @@ class CalendarsController < ApplicationController
   end
 
   def edit
+    flash[:alert] = "Please check that no bookings have been associated with this calendar listing before editing."
   end
 
   def create

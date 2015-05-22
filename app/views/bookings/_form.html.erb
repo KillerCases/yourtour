@@ -11,31 +11,11 @@
     </div>
   <% end %>
 
-<%= f.text_field :user_id %>
-<%= f.text_field :calendar_id %>
-<%= f.hidden_field :stripe_card_token %>
 
-<% if @booking.stripe_card_token.present? %>
-  Credit card has been provided.
-<% else %>
-  <div class="field">
-    <%= label_tag :card_number, "Credit Card Number" %>
-    <%= text_field_tag :card_number, nil, name: nil %>
-  </div>
-  <div class="field">
-    <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-    <%= text_field_tag :card_code, nil, name: nil %>
-  </div>
-  <div class="field">
-    <%= label_tag :card_month, "Card Expiration" %>
-    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
-    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
-  </div>
-<% end %>
+  <%= f.select :count_adult, options_for_select(1..50), { prompt: "Select # of Adults" } %>
+  <%= f.select :count_child, options_for_select(0..50), { prompt: "Select # of Children" } %>
 
-<div id="stripe_error">
-  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-</div>
+  <%= hidden_field_tag :calendar_id, params[:calendar_id] %>
 
   <%= f.submit %>
 <% end %>

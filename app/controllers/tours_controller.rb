@@ -40,6 +40,7 @@ class ToursController < ApplicationController
 
   # GET /tours/1/edit
   def edit
+    flash[:alert] = "Please check that no bookings have been associated with this calendar listing before editing."
   end
 
   # POST /tours

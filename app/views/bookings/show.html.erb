@@ -23,23 +23,22 @@
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @booking.calendar.tour.name %>
-</p>
-
-<p>
-  <strong># Children:</strong>
-  <%=  %>
-</p>
-
-<p>
-  <strong># Adults:</strong>
-  <%=  %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
+  <strong>Number of Adults:</strong>
+  <%= @booking.count_adult %>
+  <strong> @ </strong>
   <%= @booking.calendar.tour.tour_price.price_adult %>
+</p>
+
+<p>
+  <strong>Number of Children:</strong>
+  <%= @booking.count_child %>
+  <strong> @ </strong>
+  <%= @booking.calendar.tour.tour_price.price_child %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @booking.total %>
 </p>
 
 <p>
@@ -50,4 +49,12 @@
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
 <br>
 
-<%= link_to 'Back', :back %>
+<p>
+  <% if @booking.status === 'pending'%>
+    <%= link_to "Confirm", new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment', class: 'btn btn-primary'%>
+  <%end%>
+</p>
+
+<p>
+  <%= link_to 'Back', :back %>
+</p>

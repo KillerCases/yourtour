@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @tour.created_at %>
-</p>
+
 
 <p>
   <strong>Name:</strong>
@@ -41,30 +38,22 @@
 </p>
 
 <p>
-  <strong>Meeting Point Latitude:</strong>
-  <%= @tour.latitude %>
+  <strong>Adult Price:</strong>
+  <%= @tour.tour_price.price_adult %>
 </p>
 
 <p>
-  <strong>Meeting Point Longitude:</strong>
-  <%= @tour.longitude %>
+  <strong>Child Price:</strong>
+  <%= @tour.tour_price.price_child %>
 </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @tour.tour_price.name %>
-</p>
 
-<p>
-  <strong>Min Customer Threshold:</strong>
-  <%= @tour.min_customer_threshold %>
-</p>
 
 <p>
   <%= image_tag @tour.tour_image.url(:square) %>
 </p>
 
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
+
 <%= link_to 'Back', tours_path %>
 
 <h3>Nearby Tours</h3>
@@ -103,6 +92,39 @@
   <% end %>
 </div>
 
+
+<!--  Admin Only -->
+
+<% if can? :manage, @tour %>
+
+  <p>
+    <strong>Created at:</strong>
+    <%= @tour.created_at %>
+  </p>
+
+  <p>
+    <strong>Meeting Point Latitude:</strong>
+    <%= @tour.latitude %>
+  </p>
+
+  <p>
+    <strong>Meeting Point Longitude:</strong>
+    <%= @tour.longitude %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @tour.tour_price.name %>
+  </p>
+
+  <p>
+    <strong>Min Customer Threshold:</strong>
+    <%= @tour.min_customer_threshold %>
+  </p>
+
+  <%= link_to 'Edit', edit_tour_path(@tour) %>
+
+<%end%>|
 
 
 

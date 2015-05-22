@@ -14,8 +14,7 @@ class Ability
         can :read, TourGuide
         can :read, Booking
         can :read, Calendar
-        can :create, Booking
-     
+        can :create, Booking     
     end
     #
     # The first argument to `can` is the action you are giving the user 

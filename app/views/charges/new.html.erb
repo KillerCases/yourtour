@@ -1,0 +1,40 @@
+<h1>Please confirm your booking</h1>
+
+<p>
+  <strong>DateTime:</strong>
+  <%= @booking.calendar.calendar_datetime %>
+</p>
+
+<p>
+  <strong>Tour Description:</strong>
+  <%= @booking.calendar.tour.short_description %>
+</p>
+
+<p>
+  <strong># of Adults:</strong>
+  <%= @booking.count_adult %>
+</p>
+
+<p>
+  <strong># of Children:</strong>
+  <%= @booking.count_child %>
+</p>
+
+<p>
+  <strong>Total Amount: £</strong>
+  <%= @booking.total %>
+</p>
+
+<%= form_tag charges_path do %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @booking.calendar.tour.name %>"
+          data-email="<%= current_user.email %>"
+          data-amount="<%= @amount*100 %>"></script>
+
+<%= hidden_field_tag :booking_id, @booking.id %>
+          
+<% end %>
+
+<%= link_to 'Back', :back %>
