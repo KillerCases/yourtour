@@ -25,8 +25,8 @@ class Tour < ActiveRecord::Base
   # This method associates the attribute ":tour_image" with a file attachment
   has_attached_file :tour_image, styles: {
     thumb: '100x100>',
-    square: '200x200#',
-    medium: '500x00>'
+    square: '375x375#',
+    medium: '314x344>'
   }
   
   
