@@ -12,31 +12,35 @@
     <ul class='nav nav-tabs'>
 
         <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "About", welcome_about_path %></li>
-        <li><%= link_to "Contact", welcome_contact_path %></li>
         <li><%= link_to "FAQs", welcome_faq_path %></li>
-        <% if can? :read, @booking %>
-          <li><%= link_to "Your Bookings", bookings_path %></li>
-        <% end %>
         <% if can? :manage, @tour %>
           <li><%= link_to "Admin", welcome_admin_path %></li>
         <% end %>
 
         <li class='user'>
-          <ul class='nav nav-tabs'>
-          <% if current_user %>
-            <li>
-              <p>Welcome, <%= "#{current_user.name}" %></p>
-              <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></p>           
-            </li>
-            <li><%= image_tag current_user.user_image %></li>
-          <% else %>
-            <li><%= link_to "Sign Up", new_user_registration_path%></li>
-            <li><%= link_to "Sign In", new_user_session_path%></li>
-          <% end%>
+          <ul class='nav'>
+
+            <li role="presentation" class="dropdown">
+       
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                  Welcome, <%= "#{current_user.name}" %><%= image_tag current_user.user_image %> <span class="caret"></span>
+              </a>
+               
+              <ul class="dropdown-menu" role="menu">
+                <% if current_user %>
+                    <li><%= link_to "Bookings", bookings_path %></li>
+                    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li> 
+                 <% else %>
+                    <li><%= link_to "Sign Up", new_user_registration_path%></li>
+                    <li><%= link_to "Sign In", new_user_session_path%></li>
+                  <% end%>
+              </ul>
+            </li>       
+
           </ul>
-        </li>
-          </ul>
+      </li>
+    </ul>
+     
 
   <% if flash[:notice]%>
   <div class='alert alert-success'>
@@ -56,6 +60,14 @@
   <% end %>
     
 <%= yield %>
+  
+  
+
+    <ul class='nav nav-pills nav-stacked'>
+      <li><%= link_to "About", welcome_about_path %></li>
+      <li><%= link_to "Contact", welcome_contact_path %></li>
+  </ul>
+   
   </div>
 
 
