@@ -11,7 +11,7 @@
 /*******************************************/
 
 body{
-  background-color: #F2F2F2;
+/*   background-color: #F2F2F2; */
 }
 
 .container{
@@ -100,17 +100,8 @@ body{
   background-color: rgba(32,178,170,0.6);
   opacity: 1;
   color: white;
+  height: 80px;
 /*   rgba(128,0,0,0.6); */
-}
-
-/* .search-bar {
-  display:block;
-  float: left;
-  margin: 0 auto;
-} */
-
-.image-panel{
-  padding: 5px;
 }
 
 .nav .user{
@@ -157,4 +148,43 @@ p {
   font-size: 1.3rem;
 }
 
+/******************************************
+/* CUSTOM BUTTON               
+/*******************************************/
+
+.button_guide{
+  display:block;
+  height: 10%;
+  width:10%;
+  background-color:rgba(32,178,170,0.6);
+  margin: 10px;
+  color: white;
+  float: right;
+}
+
+.button_how{
+  display:block;
+  height: 40px;
+  width:30%;
+  background-color:rgba(236,21,89,1);
+  margin: 0 auto;
+  color: white;
+}
+
+.button_text{
+  display: block;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.info_bottom{
+  display:block;
+  background:rgba(236,21,89,1);
+  padding: 10px;
+}
+
+.info_bottom p, .info_bottom a{
+  color:white;
+  left:50px;
+}
 

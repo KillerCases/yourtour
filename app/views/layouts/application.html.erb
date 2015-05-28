@@ -9,64 +9,73 @@
 <body>
   
   <div class='container'>
-    <ul class='nav nav-tabs'>
+
+    <ul class='nav nav-pills'>
 
         <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "FAQs", welcome_faq_path %></li>
+          <img src='app/assets/images/logo.jpg' height='42' width='42'>
+        
         <% if can? :manage, @tour %>
           <li><%= link_to "Admin", welcome_admin_path %></li>
         <% end %>
 
         <li class='user'>
-          <ul class='nav'>
+          <ul class='nav nav-pills'>
 
             <li role="presentation" class="dropdown">
-       
+              <% if current_user %>
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
                   Welcome, <%= "#{current_user.name}" %><%= image_tag current_user.user_image %> <span class="caret"></span>
               </a>
                
               <ul class="dropdown-menu" role="menu">
-                <% if current_user %>
                     <li><%= link_to "Bookings", bookings_path %></li>
-                    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li> 
-                 <% else %>
-                    <li><%= link_to "Sign Up", new_user_registration_path%></li>
-                    <li><%= link_to "Sign In", new_user_session_path%></li>
-                  <% end%>
+                    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>  
               </ul>
-            </li>       
-
+            </li> 
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path%></li>
+              <li><%= link_to "Sign In", new_user_session_path%></li>
+            <% end%>
           </ul>
+                                
       </li>
     </ul>
      
 
-  <% if flash[:notice]%>
-  <div class='alert alert-success'>
-      <button type='button' class='close' data-dismiss='alert'>&times;</button>
-    <%= flash[:notice]%>
-    </div>
-    <% elsif flash[:error]%>
-  <div class='alert alert-danger'>
-      <button type='button' class='close' data-dismiss='alert'>&times;</button>
-    <%= flash[:error]%>
-    </div>
-  <% elsif flash[:alert]%>
-  <div class='alert alert-info'>
-      <button type='button' class='close' data-dismiss='alert'>&times;</button>
-    <%= flash[:alert]%>
-    </div>
-  <% end %>
-    
-<%= yield %>
-  
-  
+      <% if flash[:notice]%>
+      <div class='alert alert-success'>
+          <button type='button' class='close' data-dismiss='alert'>&times;</button>
+        <%= flash[:notice]%>
+        </div>
+        <% elsif flash[:error]%>
+      <div class='alert alert-danger'>
+          <button type='button' class='close' data-dismiss='alert'>&times;</button>
+        <%= flash[:error]%>
+        </div>
+      <% elsif flash[:alert]%>
+      <div class='alert alert-info'>
+          <button type='button' class='close' data-dismiss='alert'>&times;</button>
+        <%= flash[:alert]%>
+        </div>
+      <% end %>
 
-    <ul class='nav nav-pills nav-stacked'>
-      <li><%= link_to "About", welcome_about_path %></li>
-      <li><%= link_to "Contact", welcome_contact_path %></li>
-  </ul>
+    <%= yield %>
+  
+  
+    <div class = 'row info_bottom'>  
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <p><strong>Company</strong></p>
+            <p><%= link_to "About", welcome_about_path %></p>
+            <p><%= link_to "Contact", welcome_contact_path %></p>
+        </div>
+        <div class="col-md-1">
+            <p><strong>Guiding</strong></p>
+            <p><%= link_to "About", welcome_about_path %></p>
+        </div>
+        <div class="col-md-9"></div>
+    </div>
    
   </div>
 

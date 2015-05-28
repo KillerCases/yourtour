@@ -1,9 +1,26 @@
 <div class="container">
   <div class="row header-panel">
-     <div class="title">
+    
+    <%= link_to welcome_faq_path do %>
+    <div class="button_guide">
+        <div class='button_text'>
+          <h4>Be a Guide</h4>
+        </div>
+    </div>
+    <% end %>
+    
+    <div class="title">
         <h1>Your Local Guide</h1>
         <h2>Discover the world the way others see it</h2>
+        <%= link_to welcome_faq_path do %>
+        <div class="button_how">
+            <div class='button_text'>
+              <h4>How it Works</h4>
+            </div>
+         </div>
+        <% end %>
     </div>
+    
     <div class="col-lg-12">
     </div>
   </div>
@@ -13,10 +30,9 @@
     </div>
   </div>
   <div class="row search-panel">
-    <div class="col-md-3">
-      <h4>What interests you?</h4>
+    <div class="col-md-4">
     </div>
-    <div class="col-md-6 search-bar">
+    <div class="col-md-4 search-bar">
        <div class='pull-left range-query search-bar'>
             <%= form_tag welcome_index_path, method: :get, :class => "form-inline" do %>
               <div class='form-group'>
@@ -30,7 +46,7 @@
         </div>
     </div>
     
-    <div class="col-md-3">
+    <div class="col-md-4">
     </div>
   </div>
   
@@ -41,9 +57,14 @@
   
   <div class="row ">
     <% @tours.each do |tour| %>
-      <div class="col-md-4 image-panel">
+      <div class="col-md-4">
+        <div class='thumbnail'>
         <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %>
-        <h4><%= tour.name %></h4>
+          <div class='caption'>
+            <h4><%= tour.name %></h4>
+            <p><%= tour.short_description %></p>
+          </div>
+        </div>
       </div>
 		<% end %>
   </div>
