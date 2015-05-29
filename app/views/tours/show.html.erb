@@ -3,38 +3,82 @@
 <div class='container-fluid'>
   
   
+
+
   <div class='row'>
-    <div class="col-md-12 ">
+    <div class="col-md-12">
+      <%= image_tag @tour.tour_image.url(:long) %>
+    </div>
+  </div>
+  
+    <div class='row'>
+    <div class="col-md-12">
       <h1><%= @tour.name %></h1>
     </div>
   </div>
-
-  <div class='row'>
-    <div class="col-md-8">
-      <%= image_tag @tour.tour_image.url(:medium) %>
-    </div>
-    <div class="col-md-4">
-      <h3>Highlights</h3>
-    </div>
-  </div>
+      <hr>
   
   <div class='row'>
-    <div class="col-md-8">
-      <strong>Long description:</strong>
-      <%= @tour.long_description %>
+    <div class="col-md-2">
+      <h3>Description</h3>
      </div>
-    <div class='col-md-4'>
-      <h3>Schedule</h3>
+    <div class='col-md-6'>
+      <%= @tour.long_description %>
     </div>
+    <div class='col-md-4'>
+    </div>   
+
   </div>
+      <hr>
+  
+    <div class='row'>
+    <div class="col-md-2">
+      <h3>Details</h3>
+     </div>
+    <div class='col-md-6'>
+      <ul>
+        <li>Duration: <%= @tour.tour_price.duration %> hour</li>
+        <li>Meeting Place: <%= @tour.meeting_point_description %></li>
+        <li>Address: <%= @tour.address %></li>
+        <li>$<%= @tour.tour_price.price_adult %> Adults</li>
+        <li>$<%= @tour.tour_price.price_child %> Children</li>
+      </ul>
+    </div>
+    <div class='col-md-4'>
+    </div>   
+  </div>
+  <hr>
   
   <div class='row'>
-    <div class='col-md-8'>
+     <div class="col-md-2">
+      <h3>Location</h3>
+     </div>
+    
+    <div class='col-md-6'>
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@tour.latitude}%2C#{@tour.longitude}" %>
+    </div>  
+        <div class='col-md-4'>
+    </div>  
+  </div>
+  <hr>
+  
+  <div class='row'>
+    <div class="col-md-2">
+      <h3>Your Guide</h3>
+      <%= @tour.tour_guide.name %>
+     </div>
+    <div class='col-md-6'>
+      <%= @tour.tour_guide.description %>
     </div>
     <div class='col-md-4'>
-      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@tour.latitude}%2C#{@tour.longitude}" %>
-    </div>    
+    </div>   
   </div>
+  <hr>
+  
+  
+<hr>
+  
+
 
 
 <p>
@@ -42,20 +86,6 @@
   <%= @tour.tour_guide.name %>
 </p>
 
-<p>
-  <strong>Tour City:</strong>
-  <%= @tour.tour_city.city %>
-</p>
-
-<p>
-  <strong>Meeting Point Description:</strong>
-  <%= @tour.meeting_point_description %>
-</p>
-
-<p>
-  <strong>Address of Meeting Point:</strong>
-  <%= @tour.address %>
-</p>
 
 <p>
   <strong>Adult Price:</strong>
@@ -144,6 +174,11 @@
   <p>
     <strong>Min Customer Threshold:</strong>
     <%= @tour.min_customer_threshold %>
+  </p>
+  
+  <p>
+    <strong>City:</strong>
+    <%= @tour.tour_city %>
   </p>
 
   <%= link_to 'Edit', edit_tour_path(@tour) %>
