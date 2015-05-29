@@ -2,22 +2,19 @@
   <div class="row header-panel">
     
     <%= link_to welcome_faq_path do %>
-    <div class="button_guide">
-        <div class='button_text'>
+    <div class="btn button_green">
           <h4>Be a Guide</h4>
-        </div>
     </div>
     <% end %>
+    
     
     <div class="title">
         <h1>Your Local Guide</h1>
         <h2>Discover the world the way others see it</h2>
         <%= link_to welcome_faq_path do %>
-        <div class="button_how">
-            <div class='button_text'>
-              <h4>How it Works</h4>
-            </div>
-         </div>
+        <div class="btn button_pink">
+          <h4>How it Works</h4>
+        </div>
         <% end %>
     </div>
     
@@ -32,8 +29,8 @@
   <div class="row search-panel">
     <div class="col-md-4">
     </div>
-    <div class="col-md-4 search-bar">
-       <div class='pull-left range-query search-bar'>
+    <div class="col-md-8 ">
+       <div class='pull-left'>
             <%= form_tag welcome_index_path, method: :get, :class => "form-inline" do %>
               <div class='form-group'>
                 <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>

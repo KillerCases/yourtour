@@ -88,13 +88,13 @@ body{
 
 
 .header-panel{
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+  margin-top: 0.5%;
+  margin-bottom: 0%;
 }
 
 .search-panel {
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 1.5%;
+  padding-bottom: 0%;
   margin-top: 1%;
   margin-bottom: 1%;
   background-color: rgba(32,178,170,0.6);
@@ -152,29 +152,15 @@ p {
 /* CUSTOM BUTTON               
 /*******************************************/
 
-.button_guide{
-  display:block;
-  height: 10%;
-  width:10%;
+.button_green{
   background-color:rgba(32,178,170,0.6);
-  margin: 10px;
   color: white;
   float: right;
 }
 
-.button_how{
-  display:block;
-  height: 40px;
-  width:30%;
+.button_pink {
   background-color:rgba(236,21,89,1);
-  margin: 0 auto;
-  color: white;
-}
-
-.button_text{
-  display: block;
-  margin: 0 auto;
-  text-align:center;
+  color:white;
 }
 
 .info_bottom{
