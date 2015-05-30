@@ -1,189 +1,183 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class='container-fluid'>
   
   
-
+  <div class='row pad'>
+  </div>
 
   <div class='row'>
-    <div class="col-md-12">
-      <%= image_tag @tour.tour_image.url(:long) %>
-    </div>
-  </div>
-  
-    <div class='row'>
-    <div class="col-md-12">
-      <h1><%= @tour.name %></h1>
-    </div>
-  </div>
-      <hr>
-  
-  <div class='row'>
-    <div class="col-md-2">
-      <h3>Description</h3>
-     </div>
-    <div class='col-md-6'>
-      <%= @tour.long_description %>
-    </div>
-    <div class='col-md-4'>
-    </div>   
-
-  </div>
-      <hr>
-  
-    <div class='row'>
-    <div class="col-md-2">
-      <h3>Details</h3>
-     </div>
-    <div class='col-md-6'>
-      <ul>
-        <li>Duration: <%= @tour.tour_price.duration %> hour</li>
-        <li>Meeting Place: <%= @tour.meeting_point_description %></li>
-        <li>Address: <%= @tour.address %></li>
-        <li>$<%= @tour.tour_price.price_adult %> Adults</li>
-        <li>$<%= @tour.tour_price.price_child %> Children</li>
-      </ul>
-    </div>
-    <div class='col-md-4'>
-    </div>   
+      <div class="col-md-12">
+        <%= image_tag @tour.tour_image.url(:long) %>
+      </div>
   </div>
   <hr>
   
   <div class='row'>
-     <div class="col-md-2">
-      <h3>Location</h3>
-     </div>
-    
-    <div class='col-md-6'>
-      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@tour.latitude}%2C#{@tour.longitude}" %>
-    </div>  
-        <div class='col-md-4'>
-    </div>  
+      <div class='col-md-2'>
+      </div>
+      <div class='col-md-2'>
+          <%= image_tag @tour.tour_guide.tour_guide_image.url(:thumb), class: 'img-circle' %>
+          <br>
+          <%= @tour.tour_guide.name %>
+      </div>
+      <div class="col-md-8">
+          <h1><%= @tour.name %></h1>
+        <%= link_to new_booking_path do %>
+          <div class="btn button_pink">
+              <h4>Book Now</h4>
+          </div>
+          <% end %>
+      </div>
   </div>
   <hr>
   
   <div class='row'>
-    <div class="col-md-2">
-      <h3>Your Guide</h3>
-      <%= @tour.tour_guide.name %>
-     </div>
-    <div class='col-md-6'>
-      <%= @tour.tour_guide.description %>
-    </div>
-    <div class='col-md-4'>
-    </div>   
+      <div class="col-md-2">
+           <h3>Description</h3>
+       </div>
+       <div class='col-md-10'>
+          <%= @tour.long_description %>
+       </div>
   </div>
   <hr>
   
+  <div class='row'>
+      <div class="col-md-2">
+          <h3>Your Guide</h3>
+       </div>
+      <div class='col-md-10'>
+         <%= @tour.tour_guide.description %>
+      </div>
+  </div>
+  <hr>
   
-<hr>
+  <div class='row'>
+      <div class="col-md-2">
+          <h3>Details</h3>
+      </div>
+      <div class='col-md-6'>
+          <ul>
+              <li>Duration: <%= @tour.tour_price.duration %> hour</li>
+              <li>Meeting Place: <%= @tour.meeting_point_description %></li>
+              <li>Address: <%= @tour.address %></li>
+              <li>$<%= @tour.tour_price.price_adult %> Adults</li>
+              <li>$<%= @tour.tour_price.price_child %> Children</li>
+          </ul>
+      </div>
+      <div class='col-md-4'>
+      </div>   
+  </div>
+  <hr>
   
+  <div class='row'>
+      <div class="col-md-2">
+          <h3>Location</h3>
+      </div>
+      <div class='col-md-6'>
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@tour.latitude}%2C#{@tour.longitude}" %>
+      </div>  
+      <div class='col-md-4'>
+      </div>  
+  </div>
+  <hr>
 
-
-
-<p>
-  <strong>Tour Guide:</strong>
-  <%= @tour.tour_guide.name %>
-</p>
-
-
-<p>
-  <strong>Adult Price:</strong>
-  <%= @tour.tour_price.price_adult %>
-</p>
-
-<p>
-  <strong>Child Price:</strong>
-  <%= @tour.tour_price.price_child %>
-</p>
-
-
-
-<p>
   
-</p>
+  <div class='row'>
+      <div class="col-md-2">
+          <h3>Dates</h3>
+      </div>
+      <div class='col-md-6'>
+          <ul>
+              <% @calendars.sort_by{|t| - t.calendar_datetime.to_i}[0..9].each do |calendar| %>
+                  <% if user_signed_in? %>
+                      <li><%= link_to (calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p")), new_booking_path(:calendar_id => calendar.id) %></li>
+                  <% else %>
+                      <li><%= link_to (calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p")), new_user_registration_path %></li>
+                  <% end %>
+              <%end%>
+          </ul>
+      </div>  
+      <div class='col-md-4'>
+      </div>  
+  </div>
+  <hr>
 
-
-<%= link_to 'Back', tours_path %>
-
-<h3>Nearby Tours</h3>
-<ul>
-<% for tour in @tour.nearbys(10) %>
-  <li><%= link_to tour.name, tour %> (<%= tour.distance.round(2) %> miles)</li>
-<% end %>
-</ul>
-
-
-
-<!-- <h3>Calendar Listings</h3>
-<ul>
-
-  <% @calendars.each do |calendar| %>
-  <li><%= calendar.calendar_datetime %></li>
-  <%end%>
-</ul> -->
-
-<div id='calendar'> 
-  <h2 id='month'>
-    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
-    <%=h @date.strftime("%B %Y")%>
-    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
-  </h2>
-  <%= calendar_for @calendars, :year => @date.year, :month => @date.month do |t| %>
-  <%= t.head('Sun','Mon','Tues','Wed','Thurs','Fri','Sat') %>
-  <%= t.day(:day_method => :calendar_datetime) do |date, calendars| %>
-        <%= date.day %>
-        <ul>
-          <% for calendar in calendars %>
-              <% if user_signed_in? %>
-                <li><%= link_to h(calendar.tour.name), new_booking_path(:calendar_id => calendar.id) %></li>
-              <% else %>
-                <li><%= link_to h(calendar.tour.name), new_user_registration_path %></li>
+  <div class='row'>
+      <div class='col-md-2'>
+          <h3>Calendar</h3>
+      </div>
+      <div class='col-md-10'>
+          <div id='calendar'> 
+              <h2 id='month'>
+                <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+                <%=h @date.strftime("%B %Y")%>
+                <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+              </h2>
+              <%= calendar_for @calendars, :year => @date.year, :month => @date.month do |t| %>
+              <%= t.head('Sun','Mon','Tues','Wed','Thurs','Fri','Sat') %>
+              <%= t.day(:day_method => :calendar_datetime) do |date, calendars| %>
+                    <%= date.day %>
+                    <ul>
+                      <% for calendar in calendars %>
+                          <% if user_signed_in? %>
+                            <li><%= link_to h(calendar.tour.name), new_booking_path(:calendar_id => calendar.id) %></li>
+                          <% else %>
+                            <li><%= link_to h(calendar.tour.name), new_user_registration_path %></li>
+                          <% end %>
+                      <%end%>
+                    </ul>
+                   <% end %>
               <% end %>
-          <%end%>
-        </ul>
-       <% end %>
-  <% end %>
-</div>
+          </div>
+      </div>
+  </div>
+  <hr>
+  
+  <div class='row'>
+      <div class="col-md-2">
+          <h3>Nearby Tours</h3>
+      </div>
+      <div class='col-md-6'>
+          <ul>
+          <% for tour in @tour.nearbys(10) %>
+            <li><%= link_to tour.name, tour %> (<%= tour.distance.round(2) %> miles)</li>
+          <% end %>
+          </ul>
+      </div>  
+      <div class='col-md-4'>
+      </div>  
+  </div>
+  <hr>
+
 
 
 <!--  Admin Only -->
-
-<% if can? :manage, @tour %>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= @tour.created_at %>
-  </p>
-
-  <p>
-    <strong>Meeting Point Latitude:</strong>
-    <%= @tour.latitude %>
-  </p>
-
-  <p>
-    <strong>Meeting Point Longitude:</strong>
-    <%= @tour.longitude %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= @tour.tour_price.name %>
-  </p>
-
-  <p>
-    <strong>Min Customer Threshold:</strong>
-    <%= @tour.min_customer_threshold %>
-  </p>
   
-  <p>
-    <strong>City:</strong>
-    <%= @tour.tour_city %>
-  </p>
+<% if can? :manage, @tour %>
+<hr>
+  
+  <div class='row'>
+    <div class='col-md-2'>
+      <h3>Admin Only</h3>
+    </div>
+    <div class='col-md-10'>
+      <ul>
+        <li>Created at: <%= @tour.created_at %></li>
+        <li>Meeting Point Latitude: <%= @tour.latitude %></li>
+        <li>Meeting Point Longitude: <%= @tour.longitude %></li>
+        <li>Tour Price Name: <%= @tour.tour_price.name %></li>
+        <li>Min Customer Threshold: <%= @tour.min_customer_threshold %></li>
+        <li>Tour City: <%= @tour.tour_city.city %></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  
+  <%= link_to 'Edit', edit_tour_path(@tour) %>|
+  <%= link_to 'Back', tours_path %>
 
-  <%= link_to 'Edit', edit_tour_path(@tour) %>
-
-<%end%>|
+<%end%>
   
 </div>
 

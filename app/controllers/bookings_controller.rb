@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
   end
 
   def new 
-    @calendar = Calendar.find(params[:calendar_id]) 
+#     @calendar = Calendar.find(params[:calendar_id]) 
     
     if @calendar.calendar_datetime >= Date.today
       @booking = Booking.new
