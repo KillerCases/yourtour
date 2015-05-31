@@ -6,12 +6,21 @@ class BookingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if can? :manage, @booking
-      @bookings = Booking.all
+    
+    if params[:search].present?
+      if can? :manage, @booking
+        @bookings = Booking.search(params[:search]).order("created_at DESC")
+      else
+        @bookings = Booking.search(params[:search]).where(user_id: current_user.id).order("created_at DESC")
+      end
+    elsif can? :manage, @booking
+      @bookings = Booking.all.order("created_at DESC")
     else
-      @bookings = Booking.where(user_id: current_user.id)
+      @bookings = Booking.where(user_id: current_user.id).order("created_at DESC")
     end
+    
     respond_with(@bookings)
+    
   end
   
   def calculate_total

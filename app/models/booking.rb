@@ -6,6 +6,12 @@ class Booking < ActiveRecord::Base
   
   after_initialize :set_default_status, :if => :new_record?
 
+  def self.search(query)
+    # where(:name, query) -> This would return an exact match of the query
+    where("status like ?", "%#{query}%") 
+  end
+  
+  
   def set_default_status
     self.status ||= :pending
   end
