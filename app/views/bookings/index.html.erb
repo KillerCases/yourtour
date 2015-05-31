@@ -1,37 +1,54 @@
-<h1>Your Bookings</h1>
+<div class = 'container'>
 
-<div class='media'>
-  <div class='media-body'>
-     <table class='table table-hover'>
-        <thead>
-          <tr>
-            <th>Tour</th>
-            <th>Date</th>
-            <th>Adults</th>
-            <th>Children</th>
-            <th>Payment Status</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+    <h2>Your Bookings</h2>
 
-        <tbody>
-          <% @bookings.each do |booking| %>
-            <tr>
-              <td><%= booking.calendar.tour.name %></td>
-              <td><%= booking.calendar.calendar_datetime %></td>
-              <td><%= booking.count_adult %></td>
-              <td><%= booking.count_child %></td>
-              <td><%= booking.status %></td>
-              <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
-              <td><%= link_to 'Cancel', charge_path(:id => booking.id, :booking_id => booking.id), method: :delete, class: 'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>
-               <% if can? :manage, @booking %>
-              <td><%= link_to 'Delete', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
-              
-            
+    <div class='media'>
+      <div class='media-body'>
+         <table class='table table-hover'>
+            <thead>
+              <tr>
+                <th>Tour</th>
+                <th>Date</th>
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Payment Status</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @bookings.order("created_at desc").each do |booking| %>
+                <tr>
+                  <td><%= booking.calendar.tour.name %></td>
+                  <td><%= booking.calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p") %></td>
+                  <td><%= booking.count_adult %></td>
+                  <td><%= booking.count_child %></td>
+                  <td>
+                      <% if booking.status === 'paid' %>
+                          <span class="label label-success">Paid</span>
+                      <% elsif booking.status === 'pending' %>
+                          <span class="label label-warning">Pending</span>
+                      <% elsif booking.status === 'refunded' %>
+                          <span class="label label-danger">Refunded</span>
+                      <% end %>
+                  </td>
+                  <td><%= link_to 'Show', booking, class: 'btn btn-mini'  %></td>
+                  <td>  
+                      <% if booking.status === 'paid'%>
+                          <%= link_to 'Cancel', charge_path(:id => booking.id, :booking_id => booking.id), method: :delete, class: 'btn btn-mini', data: { confirm: 'Are you sure?' } %>    
+                      <% elsif booking.status === 'pending' %>
+                          <%= link_to "Confirm", new_charge_path(:booking_id => booking.id), notice: 'Please confirm payment', class: 'btn btn-warning'%>               
+                      <% end %>
+                  <td>
+                  <% if can? :manage, @booking %>
+                      <td><%= link_to 'Delete', booking, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
+                </tr>
               <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-    </table>
-  </div>
+            </tbody>
+           
+        </table>
+      </div>
+    </div>
+  
 </div>

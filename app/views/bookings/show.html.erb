@@ -1,60 +1,54 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tour Booking</h1>
+<div class='container'>
+  <br>
 
-<p>
-  <strong>Customer Name:</strong>
-  <%= @booking.user.name %>
-</p>
+  <div class='row'> 
+    <div class= 'col-md-6'>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+              <p>Booking for <%= @booking.calendar.tour.name %> </p>
+              <% if @booking.status === 'paid' %>
+                <span class="label label-success">Paid</span>
+              <% elsif @booking.status === 'pending' %>
+                <span class="label label-warning">Pending</span>
+              <% elsif @booking.status === 'refunded' %>
+                <span class="label label-danger">Refunded</span>
+              <% end %></div>
+          <div class="panel-body">
+              <li>Meet at <%= @booking.calendar.tour.meeting_point_description%></li>
+              <li><%= @booking.calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p") %></li>
+              <li> Adults x <%= @booking.count_adult %> at $<%= @booking.calendar.tour.tour_price.price_adult %></li>
+              <% if @booking.count_child > 0%>
+                 <li>Children x <%= @booking.count_child %> at $<%= @booking.calendar.tour.tour_price.price_child %></li>
+              <% end %>
+              <li>Total $<%= @booking.total %></li>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class = 'row'>
+      <div class = 'col-md-6'>
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
+      </div>
+  </div>
 
-<p>
-  <strong>Tour:</strong>
-  <%= @booking.calendar.tour.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @booking.calendar.tour.short_description %>
-</p>
-
-<p>
-  <strong>Date Time:</strong>
-  <%= @booking.calendar.calendar_datetime %>
-</p>
-
-<p>
-  <strong>Number of Adults:</strong>
-  <%= @booking.count_adult %>
-  <strong> @ </strong>
-  <%= @booking.calendar.tour.tour_price.price_adult %>
-</p>
-
-<p>
-  <strong>Number of Children:</strong>
-  <%= @booking.count_child %>
-  <strong> @ </strong>
-  <%= @booking.calendar.tour.tour_price.price_child %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @booking.total %>
-</p>
-
-<p>
-  <strong>Meeting Point:</strong>
-  <%= @booking.calendar.tour.meeting_point_description %>
-</p>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
 <br>
 
-<p>
-  <% if @booking.status === 'pending'%>
-    <%= link_to "Confirm", new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment', class: 'btn btn-primary'%>
-  <%end%>
-</p>
+<div class = 'row'>
+  <div class='col-md-6'>
+    <% if @booking.status === 'pending'%>
+      <%= link_to "Confirm Booking", new_charge_path(:booking_id => @booking.id), notice: 'Please confirm payment', class: 'btn btn-warning'%>
+    <%end%>
+  </div>
+</div>
 
-<p>
-  <%= link_to 'Back', :back %>
-</p>
+  <br>
+
+
+<%= link_to 'Back', bookings_path %>
+
+  
+</div>
