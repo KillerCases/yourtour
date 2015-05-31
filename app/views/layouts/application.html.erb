@@ -5,8 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://js.stripe.com/v2/", 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript"> $(function () { $("#myModal").modal({show:false }); </script>
 </head>
 <body>
+  
+  <%= render "welcome/sign_in_modal" %>
+  <%= render "welcome/sign_up_modal" %>
      
   <div class='container'>
 
@@ -35,8 +39,11 @@
               </ul>
             </li> 
             <% else %>
+            <%= link_to "Login", "#login", "data-toggle" => "modal", :class => 'btn btn-small' %>
               <li><%= link_to "Sign Up", new_user_registration_path%></li>
               <li><%= link_to "Sign In", new_user_session_path%></li>
+              <li><%= link_to "Sign Up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %></li>
+              <li><%= link_to "Sign In", "#sign_in", "data-toggle" => "modal", :class => 'btn btn-small' %></li>
             <% end%>
           </ul>
                                 
