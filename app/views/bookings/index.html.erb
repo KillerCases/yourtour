@@ -1,23 +1,22 @@
 <div class = 'container'>
-
-  <div class = 'row'>
-    <h2>Your Bookings</h2>
-  </div>
   
-  <% if can? :manage, @booking%>
-  <div class = 'row'>
-      <div class = 'col-md-9'></div>
-      <div class = 'col-md-3'>
-        <%= form_tag bookings_path, method: :get, :class => "form-inline" do %>
-        <div class='form-group'>
-            <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Status" %>
-        </div>
-        <%= submit_tag 'Search', class: 'btn search-btn'%>
-        <% end %>
-      </div> 
-  </div>
-  <% end %>
+  <br>
 
+  <div class = 'row'>
+      <div class = 'col-md-9'>
+          <h2>Your Bookings</h2>
+      </div>
+      <% if can? :manage, @booking%>
+          <div class = 'col-md-3'>
+            <%= form_tag bookings_path, method: :get, :class => "form-inline" do %>
+            <div class='form-group'>
+                <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Status" %>
+            </div>
+            <%= submit_tag 'Search', class: 'btn search-btn'%>
+            <% end %>
+          </div> 
+      <% end %>
+    </div>
 
     <div class='media'>
       <div class='media-body'>
