@@ -16,8 +16,6 @@
   <%= f.select :count_adult, options_for_select(1..50), {:label => 'Adults'},{:prompt => true} %>
   <%= f.select :count_child, options_for_select(0..50), {:label => 'Children'},{:prompt => true} %>
 
-  <%= hidden_field_tag :calendar_id, params[:calendar_id] %>
-
 <%= f.submit "Book Now", class: "btn button_pink" %>
 <% end %>
 

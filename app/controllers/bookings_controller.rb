@@ -43,17 +43,10 @@ class BookingsController < ApplicationController
 #     @booking.save
 #     respond_with(@booking)
     
-    @calendar = Calendar.find(params[:calendar_id]) 
     @booking = Booking.new(booking_params)
-    
-    if @booking.count_adult.blank? 
-        flash[:error] = "Please select number of adults"
-        redirect_to new_booking_path(:calendar_id => @calendar.tour.id)
-    else
-        @booking.user_id = current_user.id
-        @booking.calendar_id = @calendar.id
-        @booking.total = calculate_total
-        @booking.save
+    @booking.user_id = current_user.id
+    @booking.total = calculate_total
+    @booking.save
 
         respond_to do |format|
           if @booking.save 
@@ -65,7 +58,6 @@ class BookingsController < ApplicationController
           end  
         end
       
-    end
     
   end
 
