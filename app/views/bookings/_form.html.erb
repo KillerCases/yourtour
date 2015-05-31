@@ -1,21 +1,40 @@
-<%= bootstrap_form_for(@booking) do |f| %>
-  <% if @booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-
-      <ul>
-      <% @booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class='container'>
+  
+  <h2>New Booking for <%=@tour.name%></h2>
 
   
-  <%= f.collection_select :calendar_id, @calendars, :id, :calendar_datetime,{:selected => @calendar_selected.id, :label => "Select Date"},{:prompt => true}%>
-  <%= f.select :count_adult, options_for_select(1..50), {:label => 'Adults'},{:prompt => true} %>
-  <%= f.select :count_child, options_for_select(0..50), {:label => 'Children'},{:prompt => true} %>
+  <div class = 'row'>
+    
+    <div class = 'col-md-2'>
 
-<%= f.submit "Book Now", class: "btn button_pink" %>
-<% end %>
+          <%= bootstrap_form_for(@booking) do |f| %>
+            <% if @booking.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+                <ul>
+                <% @booking.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+
+            <%= f.collection_select :calendar_id, @calendars, :id, :calendar_datetime,{:selected => @calendar_selected.id, :label => "Select Date"},{:prompt => true}%>
+            <%= f.select :count_adult, options_for_select(1..50), {:label => 'Adults'},{:prompt => true} %>
+            <%= f.select :count_child, options_for_select(0..50), {:label => 'Children'},{:prompt => true} %>
+
+          <%= f.submit "Book Now", class: "btn button_pink" %>
+          <% end %>
+      
+    </div>
+    
+  </div>
+  
+  <br>
+  
+  <%= link_to 'Back', :back %>
+  
+</div>
 

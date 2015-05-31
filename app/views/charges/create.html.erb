@@ -1,1 +1,24 @@
-<h2>Thanks for your booking</h2>
+<div class='container'>
+  
+    <div class='row'>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <p>Thanks for your booking<p>
+        </div>    
+    </div>
+
+    <div class='row'>
+      <div class='col-md-6'>
+        <li><%= @booking.calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p") %></li>
+        <li>Meet at <%= @booking.calendar.tour.meeting_point_description%></li>
+      </div>
+    </div>
+    <br>
+
+    <div class='row'>
+      <div class='col-md-6'>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@booking.calendar.tour.latitude}%2C#{@booking.calendar.tour.longitude}" %>
+      </div>
+     </div>
+
+</div>
+
