@@ -19,17 +19,12 @@ class ToursController < ApplicationController
       @tours = Tour.all
     end
         
-  end
-  
-#   def find_calendar
-#       @calendar = Calendar.where(tour_id: @tour.id)
-#   end
-  
+  end 
 
   # GET /tours/1
   # GET /tours/1.json
   def show
-    @calendars = Calendar.where(tour_id: @tour.id) 
+    @calendars = Calendar.where(tour_id: @tour.id).where("calendar_datetime >= :date", date: Date.today) 
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 

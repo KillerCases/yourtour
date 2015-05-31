@@ -1,13 +1,8 @@
-<h1>New Booking for <%=@tour.name%></h1>
-
-<h2>Tour Details</h2>
-
-
-<p>
-  <strong>Tour Description:</strong>
-  <%= @tour.short_description %>
-</p>
+<h2>New Booking for <%=@tour.name%></h2>
+<br>
 
 <%= render 'form' %>
+
+<br>
 
 <%= link_to 'Back', :back %>
