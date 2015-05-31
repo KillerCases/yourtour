@@ -23,7 +23,7 @@
       </div>
       <div class="col-md-8">
           <h1><%= @tour.name %></h1>
-        <%= link_to new_booking_path do %>
+        <%= link_to new_booking_path(:tour_id => @tour.id) do %>
           <div class="btn button_pink">
               <h4>Book Now</h4>
           </div>
@@ -91,7 +91,7 @@
           <ul>
               <% @calendars.sort_by{|t| - t.calendar_datetime.to_i}[0..9].each do |calendar| %>
                   <% if user_signed_in? %>
-                      <li><%= link_to (calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p")), new_booking_path(:calendar_id => calendar.id) %></li>
+                      <li><%= link_to (calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p")), new_booking_path(:tour_id => @tour.id, :calendar_id => calendar.id) %></li>
                   <% else %>
                       <li><%= link_to (calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p")), new_user_registration_path %></li>
                   <% end %>
@@ -121,7 +121,7 @@
                     <ul>
                       <% for calendar in calendars %>
                           <% if user_signed_in? %>
-                            <li><%= link_to h(calendar.tour.name), new_booking_path(:calendar_id => calendar.id) %></li>
+                            <li><%= link_to h(calendar.tour.name), new_booking_path(:tour_id => @tour.id, :calendar_id => calendar.id) %></li>
                           <% else %>
                             <li><%= link_to h(calendar.tour.name), new_user_registration_path %></li>
                           <% end %>

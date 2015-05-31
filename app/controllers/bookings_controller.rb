@@ -25,15 +25,21 @@ class BookingsController < ApplicationController
   end
 
   def new 
-#     @calendar = Calendar.find(params[:calendar_id]) 
-    
-    if @calendar.calendar_datetime >= Date.today
-      @booking = Booking.new
-      respond_with(@booking)
-    else
-      flash[:alert] = 'Please select a date in future'
-      redirect_to tour_path(:id => @calendar.tour.id)
+    @tour = Tour.find(params[:tour_id])
+    @calendars = Calendar.where(tour_id: params[:tour_id])
+    if params[:calendar_id]
+      @calendar_selected = Calendar.find(params[:calendar_id])
+    else 
+      @calendar_selected = Calendar.last
     end
+    
+#     if @calendar.calendar_datetime >= Date.today
+#       @booking = Booking.new
+#       respond_with(@booking)
+#     else
+#       flash[:alert] = 'Please select a date in future'
+#       redirect_to tour_path(:id => @calendar.tour.id)
+#     end
     
   end
 
