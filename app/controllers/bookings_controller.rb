@@ -28,6 +28,10 @@ class BookingsController < ApplicationController
       total_child = (@booking.count_child.to_i * @booking.calendar.tour.tour_price.price_child)
       return total_adult + total_child 
   end
+  
+  def send_booking_confirmation_email
+    UserNotifier.send_booking_confirmation_email(current_user).deliver  
+  end
 
   def show
     respond_with(@booking)
@@ -56,6 +60,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.total = calculate_total
     @booking.save
+    send_booking_confirmation_email
 
         respond_to do |format|
           if @booking.save 
