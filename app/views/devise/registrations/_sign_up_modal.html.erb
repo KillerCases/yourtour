@@ -1,34 +1,29 @@
-<div class="modal fade" id="sign_in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="sign_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Log In</h4>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
       </div>
       <div class="modal-body">
-            <%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+        
+            <%= bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
                     <%= f.email_field :email, :autofocus => true %>
-                    <%= f.password_field :password %>
-                    <% if devise_mapping.rememberable? -%>
-                        <%= f.check_box :remember_me %>
-                    <% end %>    
-                    <%= f.submit "Log in", :class => 'btn btn-block button_pink' %>
+                    <%= f.password_field :password, autocomplete: "off" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                    <%= f.submit "Sign Up", :class => 'btn btn-block button_pink' %>
             <% end %>
-            <br>
-            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-            <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
-            <% end -%>
             <hr>
             <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-block btn-facebook" do %>
                 <i class="fa fa-facebook"></i>
-                Log in with Facebook
+                Sign Up with Facebook
             <% end %>
             <br>
             <%= link_to user_omniauth_authorize_path(:google_oauth2), class: "btn btn-social btn-block btn-google-plus" do %>
                 <i class="fa fa-google-plus"></i>
-                Log in with Google
+                Sign Up with Google
             <% end %>
             <hr>
             Don't have an account?
@@ -40,4 +35,3 @@
     </div>
   </div>
 </div>
-  
