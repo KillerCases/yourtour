@@ -8,17 +8,17 @@
       </div>
       <div class="modal-body">
             <%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-                    <%= f.email_field :email, :autofocus => true %>
-                    <%= f.password_field :password %>
-                    <% if devise_mapping.rememberable? -%>
-                        <%= f.check_box :remember_me %>
-                    <% end %>    
-                    <%= f.submit "Log in", :class => 'btn btn-block button_pink' %>
+                <%= devise_error_messages! %>
+                <%= f.email_field :email, :autofocus => true %>
+                <%= f.password_field :password %>
+                <% if devise_mapping.rememberable? -%>
+                    <%= f.check_box :remember_me %>
+                <% end %>    
+                <%= f.submit "Log in", :class => 'btn btn-block button_pink' %>
             <% end %>
             <br>
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-            <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
+                <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
             <% end -%>
             <hr>
             <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-block btn-facebook" do %>
@@ -30,13 +30,8 @@
                 <i class="fa fa-google-plus"></i>
                 Log in with Google
             <% end %>
-            <hr>
-            Don't have an account?
-                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-                <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-            <% end -%>
+            
         </div>
-
     </div>
   </div>
 </div>

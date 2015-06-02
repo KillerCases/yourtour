@@ -40,12 +40,8 @@
               </ul>
             </li> 
             <% else %>
-
-            <li><%= link_to "Log In", "#sign_in", "data-toggle" => "modal"%></li>
-            <li><%= link_to "Sign Up - Modal", "#sign_up", "data-toggle" => "modal"%></li>
-            <li><%= link_to "Sign Up - Devise Links", new_user_registration_path, "data-toggle" => "modal" %></li>
-            
-             
+                <li><%= link_to "Log In", "#sign_in", "data-toggle" => "modal"%></li>
+                <li><%= link_to "Sign Up", "#sign_up", "data-toggle" => "modal"%></li>
             <% end%>
           </ul>
                                            
@@ -78,7 +74,7 @@
    
   </div>
 
-<%= render "welcome/sign_in_modal" %> 
-  <%= render "welcome/sign_up_modal" %> 
+  <%= render "devise/sessions/sign_in_modal" %> 
+  <%= render "devise/registrations/sign_up_modal" %> 
 </body>
 </html>
