@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
+@import "bootstrap-social";
 @import "bootstrap";
+
 
 /*
  *= require rails_bootstrap_forms
@@ -13,6 +15,19 @@
 body{
 /*   background-color: #F2F2F2; */
 }
+
+h1{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2{
+    font-family: 'Open Sans', sans-serif;  
+}
+
+h3{
+    font-family: 'Open Sans', sans-serif;
+}
+
 
 .pad{
   display:block;

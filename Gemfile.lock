@@ -39,6 +39,8 @@ GEM
     bcrypt (3.1.9)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap-social-rails (4.8.0)
+      railties (>= 3.1)
     bootstrap_form (2.3.0)
     builder (3.2.2)
     cancancan (1.10.1)
@@ -191,6 +193,7 @@ DEPENDENCIES
   autoprefixer-rails
   aws-sdk (< 2.0)
   bootstrap-sass (~> 3.2.0)
+  bootstrap-social-rails
   bootstrap_form
   cancancan (~> 1.10)
   coffee-rails (~> 4.0.0)

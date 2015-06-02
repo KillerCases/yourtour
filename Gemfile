@@ -35,6 +35,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.2.0'
+
+gem 'bootstrap_form'
+
+gem 'bootstrap-social-rails'
+
 gem 'autoprefixer-rails'
 
 gem 'devise'
@@ -44,11 +49,10 @@ gem "watu_table_builder", :require => "table_builder"
 gem 'stripe'
 
 gem 'paperclip'
+
 gem 'aws-sdk', '< 2.0'
 
 gem 'geocoder'
-
-gem 'bootstrap_form'
 
 gem 'omniauth-facebook'
 
