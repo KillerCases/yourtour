@@ -1,5 +1,5 @@
 class UserNotifier < ActionMailer::Base
-  default :from => 'jo@fiksu.com'
+  default :from => 'noreply@bogus.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def send_booking_confirmation_email(user)
