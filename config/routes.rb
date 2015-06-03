@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get "welcome/contact"
   get "welcome/faq"
   get "welcome/admin"
-  get "welcome/your_bookings"
   
   resources :tours do 
     collection { post :import}
