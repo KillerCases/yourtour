@@ -40,11 +40,17 @@ class BookingsController < ApplicationController
   def new 
     @tour = Tour.find(params[:tour_id])
     @calendars = Calendar.where(tour_id: params[:tour_id]).where("calendar_datetime >= :date", date: Date.today)   
-    if params[:calendar_id]
-      @calendar_selected = Calendar.find(params[:calendar_id])
-    else 
-      @calendar_selected = Calendar.last
-    end  
+    if @calendars is NULL
+      flash[:error] = "Sorry, no dates are scheduled for this tour. We'll contact you when a time is available"
+      @calendar_request = CalendarRequest.new(:tour_id => params[:tour_id], :user_id => current_user.id)
+      return
+    else
+        if params[:calendar_id]
+          @calendar_selected = Calendar.find(params[:calendar_id])
+        else 
+          @calendar_selected = Calendar.last
+        end  
+    end
   end
 
   def edit
