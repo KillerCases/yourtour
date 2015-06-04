@@ -4,6 +4,7 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 Rails.application.initialize!
 
+# SENDGRID
   config.action_mailer.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
