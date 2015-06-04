@@ -60,7 +60,8 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.total = calculate_total
     @booking.save
-    UserNotifier.send_booking_confirmation_email(current_user).deliver
+    @user = current_user
+    UserNotifier.send_booking_confirmation_email(@user).deliver
 
         respond_to do |format|
           if @booking.save 
