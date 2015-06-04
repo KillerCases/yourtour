@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519203845) do
+ActiveRecord::Schema.define(version: 20150604002432) do
 
   create_table "bookings", force: true do |t|
     t.datetime "created_at"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20150519203845) do
     t.integer  "total"
     t.string   "status"
     t.string   "stripe_charge_id"
+  end
+
+  create_table "calendar_requests", force: true do |t|
+    t.integer  "tour_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "calendars", force: true do |t|
