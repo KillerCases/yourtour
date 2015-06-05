@@ -5,8 +5,9 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
    user ||= User.new # guest user (not logged in)
-      can :read, Tour
-      can :create, User
+        can :read, Tour
+        can :create, User
+        can :create, CalendarRequest
   
    if user.role == 'admin'
         can :manage, :all
@@ -16,7 +17,8 @@ class Ability
         can :read, TourGuide
         can :read, Booking
         can :read, Calendar
-        can :create, Booking     
+        can :create, Booking
+        can :create, CalendarRequest
     end
     #
     # The first argument to `can` is the action you are giving the user 
