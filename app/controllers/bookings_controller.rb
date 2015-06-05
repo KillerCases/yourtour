@@ -36,6 +36,9 @@ class BookingsController < ApplicationController
   def new 
     @tour = Tour.find(params[:tour_id])
     @calendars = Calendar.where(tour_id: params[:tour_id]).where("calendar_datetime >= :date", date: Date.today)
+    logger.info (ENV['SENDGRID_USERNAME'])
+    logger.info (ENV['SENDGRID_PASSWORD'])
+    UserNotifier.send_booking_confirmation_email(current_user).deliver    
     if @calendars.nil?
       flash[:alert] = "Hey there! This tour hasn't got any dates scheduled. Stay tuned for changes."
       CalendarRequest.new(tour_id: params[:tour_id], user_id: current_user.id)
