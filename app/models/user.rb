@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :basic
+    self.role ||= :admin
   end
   
   def self.from_omniauth(auth)

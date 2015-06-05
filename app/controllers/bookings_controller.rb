@@ -28,10 +28,6 @@ class BookingsController < ApplicationController
       total_child = (@booking.count_child.to_i * @booking.calendar.tour.tour_price.price_child)
       return total_adult + total_child 
   end
-  
-  def send_booking_confirmation_email
-    UserNotifier.send_booking_confirmation_email(current_user).deliver  
-  end
 
   def show
     respond_with(@booking)
@@ -39,7 +35,13 @@ class BookingsController < ApplicationController
 
   def new 
     @tour = Tour.find(params[:tour_id])
-    @calendars = Calendar.where(tour_id: params[:tour_id]).where("calendar_datetime >= :date", date: Date.today)   
+    @calendars = Calendar.where(tour_id: params[:tour_id]).where("calendar_datetime >= :date", date: Date.today)
+    if @calendars.nil?
+      flash[:alert] = "Hey there! This tour hasn't got any dates scheduled. Stay tuned for changes."
+      CalendarRequest.new(tour_id: params[:tour_id], user_id: current_user.id)
+      redirect_to tour_path(id: params[:tour_id])
+    else
+    end
     if params[:calendar_id]
       @calendar_selected = Calendar.find(params[:calendar_id])
     else 
@@ -55,12 +57,14 @@ class BookingsController < ApplicationController
 #     @booking = Booking.new(booking_params)
 #     @booking.save
 #     respond_with(@booking)
-    
+    @user = current_user
+    logger.info (ENV['SENDGRID_USERNAME'])
+    logger.info (ENV['SENDGRID_PASSWORD'])
+#     UserNotifier.send_booking_confirmation_email(current_user).deliver    
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.total = calculate_total
     @booking.save
-    send_booking_confirmation_email
 
         respond_to do |format|
           if @booking.save 

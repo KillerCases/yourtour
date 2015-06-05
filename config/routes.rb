@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :calendar_requests
+
   resources :bookings
   
   resources :charges
