@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tour:</strong>
+  <%= @calendar_request.tour_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @calendar_request.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_calendar_request_path(@calendar_request) %> |
+<%= link_to 'Back', calendar_requests_path %>
