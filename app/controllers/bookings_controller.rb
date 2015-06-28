@@ -78,10 +78,10 @@ class BookingsController < ApplicationController
 #     @booking = Booking.new(booking_params)
 #     @booking.save
 #     respond_with(@booking)
-#     @user = current_user
+    @user = current_user
 #     logger.info (ENV['SENDGRID_USERNAME'])
 #     logger.info (ENV['SENDGRID_PASSWORD'])
-#     UserNotifier.send_booking_confirmation_email(current_user).deliver    
+    UserNotifier.send_booking_confirmation_email(current_user).deliver    
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.total = calculate_total
