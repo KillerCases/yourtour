@@ -4,6 +4,19 @@ class BookingsController < ApplicationController
   respond_to :html
   
   load_and_authorize_resource
+  
+  
+  Mail.defaults do
+  delivery_method :smtp, {
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :domain => 'heroku.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+end
 
   def index
     
@@ -34,6 +47,14 @@ class BookingsController < ApplicationController
   end
 
   def new 
+    
+    Mail.deliver do
+      to 'jollyolewight@gmail.com'
+      from 'sender@example.comt'
+      subject 'testing send mail'
+      body 'Sending email with Ruby through SendGrid!'
+    end
+    
     @tour = Tour.find(params[:tour_id])
     @calendars = Calendar.where(tour_id: params[:tour_id]).where("calendar_datetime >= :date", date: Date.today)  
     if @calendars.first.nil?
@@ -58,10 +79,10 @@ class BookingsController < ApplicationController
 #     @booking = Booking.new(booking_params)
 #     @booking.save
 #     respond_with(@booking)
-    @user = current_user
-    logger.info (ENV['SENDGRID_USERNAME'])
-    logger.info (ENV['SENDGRID_PASSWORD'])
-    UserNotifier.send_booking_confirmation_email(current_user).deliver    
+#     @user = current_user
+#     logger.info (ENV['SENDGRID_USERNAME'])
+#     logger.info (ENV['SENDGRID_PASSWORD'])
+#     UserNotifier.send_booking_confirmation_email(current_user).deliver    
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.total = calculate_total
