@@ -25,6 +25,7 @@ class ChargesController < ApplicationController
     
   if charge["paid"] == true
     @booking.update_attributes(:status => 'paid', :stripe_charge_id => charge["id"])
+    UserNotifier.send_booking_confirmation_email(current_user, @booking).deliver 
   end
     
   rescue Stripe::CardError => e
