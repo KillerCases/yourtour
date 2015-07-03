@@ -14,8 +14,6 @@
 				<%= label_tag :body, 'Please Describe Your Issue' %>
 				<%= text_area_tag :body, nil, :rows => 10, class: "input-xxlarge" %>
 
-				<%= label_tag :game, 'Select Your Game' %>
-				<%= select_tag :game, options_from_collection_for_select(@game, "id", "name"), :prompt => "Select something" %>
 			<% else %>
 				<%= label_tag :full_name, 'Full Name' %>
 				<%= text_field_tag :full_name, nil, class: "input-xxlarge"%>

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :users
   # This must go after devise_for to avoid conflicts
   
+  resources :tickets
+  
   get "welcome/index"
   get "welcome/about"
   get "welcome/contact"
