@@ -27,9 +27,7 @@ class BookingsController < ApplicationController
       total_adult = (@booking.count_adult.to_i * @booking.calendar.tour.tour_price.price_adult)
       total_child = (@booking.count_child.to_i * @booking.calendar.tour.tour_price.price_child)
       total = total_adult + total_child 
-#       total_money = Money.new(total, @booking.calendar.tour.tour_price.currency).format
-      total_money = Money.new(100000,'USD').format
-      return total_money 
+      return total
   end
 
   def show

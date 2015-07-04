@@ -3,13 +3,15 @@ class ChargesController < ApplicationController
 
   def new
     @booking = Booking.find(params[:booking_id])
-    @amount = @booking.total
+#     @amount = @booking.total
+    @amount = Money.new(@booking.total*100, @booking.calendar.tour.tour_price.currency).format
   end
 
   def create
     @booking = Booking.find(params[:booking_id])
-    @amount = @booking.total*100
-    
+    @amount = (@booking.total*100).to_i
+    logger.info '<%= "#{@amount}" %>'
+
     customer = Stripe::Customer.create(
       :email => current_user.email,
       :description => "User ID: #{@booking.user_id}",
@@ -20,7 +22,7 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => "Booking ID: #{@booking.id}",  
-      :currency    => 'gbp'
+      :currency    => @booking.calendar.tour.tour_price.currency.downcase
     )
     
   if charge["paid"] == true
