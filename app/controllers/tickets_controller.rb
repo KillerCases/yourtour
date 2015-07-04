@@ -33,7 +33,7 @@ class TicketsController < ApplicationController
     @comment = params[:comment]
 
     @update = client.requests.find(:id => @id)
-    @update.comment = { :body => @comment}
+    @update.comment = { :description => @comment}
     @update.save
 
     redirect_to ticket_path(@id)
@@ -42,12 +42,14 @@ class TicketsController < ApplicationController
   private
 
   def create_ticket
-    options = {:subject => params[:subject], :comment => { :value => params[:body] }, :requester => { :email => @email }}
-#     if @game_name
-#       options[:custom_fields] = {:id => "21833683", :value => @game_name}
-#     else
-      options[:requester][:name] = params[:full_name]
-#     end
-    ZendeskAPI::Ticket.create(client, options)
+    options = {:subject => params[:subject], :comment => { :value => params[:description] }, :requester => { :email => @email, :name => params[:name] }}
+    if params[:subject].blank? or params[:description].blank? or params[:email].blank?
+      flash[:alert] = "Please complete all fields."
+      redirect_to new_ticket_path
+    else
+#       options[:requester][:name] = params[:full_name]
+          ZendeskAPI::Ticket.create(client, options)
+    end
+
   end
 end

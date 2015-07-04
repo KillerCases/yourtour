@@ -1,0 +1,8 @@
+
+                <%= bootstrap_form_tag url: tickets_path do |f| %>
+                <%= f.text_field :full_name %>
+              <%= f.text_field :email %>
+                <%= f.text_field :subject %>
+                <%= f.text_area :description %>
+                <p><%= submit_tag "Submit", class: "btn btn-large btn-primary" %></p>
+                <% end %>
