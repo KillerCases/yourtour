@@ -69,8 +69,8 @@
               <li>Duration: <%= @tour.tour_price.duration %> hour</li>
               <li>Meeting Place: <%= @tour.meeting_point_description %></li>
               <li>Address: <%= @tour.address %></li>
-              <li>$<%= @tour.tour_price.price_adult %> Adults</li>
-              <li>$<%= @tour.tour_price.price_child %> Children</li>
+            <li><%= @price_adult %> Adults</li>
+            <li><%= @price_child %> Children</li>
           </ul>
       </div>
       <div class='col-md-4'>

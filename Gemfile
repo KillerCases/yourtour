@@ -64,3 +64,5 @@ gem "font-awesome-rails"
 
 gem 'zendesk_api'
 
+gem 'money-rails'
+

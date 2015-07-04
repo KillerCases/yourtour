@@ -26,6 +26,8 @@ class ToursController < ApplicationController
   def show
     @calendars = Calendar.where(tour_id: @tour.id).where("calendar_datetime >= :date", date: Date.today) 
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
+    @price_adult = Money.new(@tour.tour_price.price_adult*100, @tour.tour_price.currency).format
+    @price_child = Money.new(@tour.tour_price.price_child*100, @tour.tour_price.currency).format
   end
 
   # GET /tours/new
