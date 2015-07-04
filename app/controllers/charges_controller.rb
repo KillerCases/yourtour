@@ -3,11 +3,11 @@ class ChargesController < ApplicationController
 
   def new
     @booking = Booking.find(params[:booking_id])
-#     @amount = @booking.total
     @amount = Money.new(@booking.total*100, @booking.calendar.tour.tour_price.currency).format
   end
 
   def create
+    # Stripe amount needs to be in cents   
     @booking = Booking.find(params[:booking_id])
     @amount = (@booking.total*100).to_i
     logger.info '<%= "#{@amount}" %>'
