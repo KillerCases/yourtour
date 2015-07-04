@@ -6,6 +6,14 @@ class UserNotifier < ActionMailer::Base
     @user = user
     @booking = booking
     mail( :to => user.email,
-    :subject => 'Thank you for your booking' )
+      :subject => 'Thank you for your booking' )
   end
+
+  def send_cancellation_confirmation_email(user, booking)
+    @user = user
+    @booking = booking
+    mail( :to => user.email,
+      :subject => 'Booking cancelled' )
+  end
+  
 end

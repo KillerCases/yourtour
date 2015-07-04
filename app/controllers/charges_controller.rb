@@ -44,6 +44,7 @@ class ChargesController < ApplicationController
       refund = ch.refunds.create
       @booking.update_attributes(:status => 'refunded')
       flash[:alert] = "This booking has been cancelled"
+      UserNotifier.send_cancellation_confirmation_email(current_user, @booking).deliver 
       redirect_to bookings_path
     elsif @booking.status === 'paid' && @booking.calendar.calendar_datetime < Date.today
       flash[:error] = "This booking cannot be cancelled as it occured in the past"

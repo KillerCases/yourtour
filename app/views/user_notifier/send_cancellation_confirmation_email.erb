@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+          <h1>Hi <%= @user.name %>!</h1>
+          <h2>Your booking has been cancelled</h2>
+          <hr>
+
+              <p>Tour name: <%= @booking.calendar.tour.name %></p>
+              <p>Date: <%= @booking.calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p") %></p>
+              <p>We hope to see you again soon!</p>
+    <hr>
+    <p>You can view the status of your booking by logging into your account and clicking on the Bookings page at https://yourtour-heroku.herokuapp.com/bookings.</p>
+  </body>
+</html>
