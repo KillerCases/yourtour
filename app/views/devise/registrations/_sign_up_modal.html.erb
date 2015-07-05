@@ -1,3 +1,6 @@
+
+
+
 <div class="modal fade" id="sign_up" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -15,7 +18,7 @@
                     <%= f.submit "Sign Up", :class => 'btn btn-block button_pink' %>
             <% end %>
             <hr>
-        <p>Already have an account? <%= link_to "Log In", "#sign_in", "data-toggle" => "modal", :id => 'test'%></p>
+        <p>Already have an account? <%= link_to "Log In", "#sign_in", "data-toggle" => "modal", id: 'hide_sign_up', remote: true%></p>
             <hr>
             <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-block btn-facebook" do %>
                 <i class="fa fa-facebook"></i>

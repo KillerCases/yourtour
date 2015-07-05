@@ -10,6 +10,8 @@
 </head>
 <body>
   
+
+  
      
   <div class='container'>
        
@@ -22,7 +24,7 @@
     
         
         <% if can? :manage, @tour %>
-          <li><%= link_to "Admin", welcome_admin_path %></li>
+      <li><%= link_to "Admin", welcome_admin_path %></li>
         <% end %>
 
         <li class='user'>
@@ -31,7 +33,7 @@
             <li role="presentation" class="dropdown">
               <% if current_user %>
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                  Welcome, <%= "#{current_user.name}" %><%= image_tag current_user.user_image %> <span class="caret"></span>
+                  Welcome <%= "#{current_user.name}" %><%= image_tag current_user.user_image %> <span class="caret"></span>
               </a>
                
               <ul class="dropdown-menu" role="menu">
