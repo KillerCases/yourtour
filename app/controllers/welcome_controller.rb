@@ -9,8 +9,12 @@ class WelcomeController < ApplicationController
       else
         @tours = Tour.near(params[:search_location], 50)
       end
-    elsif params[:search]
+    elsif params[:search].present?
       @tours = Tour.search(params[:search]).order("created_at DESC")
+    elsif params[:start].present?
+      
+      @tours = Tour.joins(:calendars)
+      
     else
       @tours = Tour.all
     end

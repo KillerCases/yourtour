@@ -2,6 +2,7 @@ class Tour < ActiveRecord::Base
   belongs_to :tour_guide
   belongs_to :tour_city
   belongs_to :tour_price
+  has_many :calendars
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
  
