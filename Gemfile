@@ -66,3 +66,5 @@ gem 'zendesk_api'
 
 gem 'money-rails'
 
+gem 'bootstrap-datepicker-rails'
+

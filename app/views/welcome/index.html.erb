@@ -32,17 +32,23 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-8 ">
-       <div class='pull-left'>
-            <%= form_tag welcome_index_path, method: :get, :class => "form-inline" do %>
-              <div class='form-group'>
-                <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
-             </div>
-             <div class='form-group'>
-              <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Interest" %>
-             </div>
-              <%= submit_tag 'Search', class: 'btn search-btn'%>
-              <% end %>
+      <div class='pull-left'>
+        <%= form_tag welcome_index_path, method: :get, :class => "form-inline" do %>
+        <div class='form-group'>
+          <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
         </div>
+        <div class='form-group'>
+          <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Interest" %>
+        </div>
+        <div class="input-daterange input-group" id="datepicker">
+<!--           <input type="text" class="input-sm form-control" name="start" /> -->
+          <%= text_field_tag :start,  params[:start], class: 'input-sm form-control'%>
+          <span class="input-group-addon">to</span>
+          <input type="text" class="input-sm form-control" name="end" />
+        </div>
+        <%= submit_tag 'Search', class: 'btn search-btn'%>
+        <% end %>
+      </div>
     </div>
     
     <div class="col-md-4">
