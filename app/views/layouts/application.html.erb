@@ -14,18 +14,18 @@
   
      
   <div class='container'>
-       
+    
+
 
     <ul class='nav nav-tabs'>
 
-        <%= link_to welcome_index_path do %>
-          <img alt="Logo" src="/assets/logo.png" height= '42' width=42/>
-        <% end %>
-    
-        
-        <% if can? :manage, @tour %>
+      <%= link_to welcome_index_path do %>
+      <img alt="Logo" src="/assets/logo.png" height= '42' width=42/>
+      <% end %>
+
+      <% if can? :manage, @tour %>
       <li><%= link_to "Admin", welcome_admin_path %></li>
-        <% end %>
+      <% end %>
 
         <li class='user'>
           <ul class='nav nav-pills'>
