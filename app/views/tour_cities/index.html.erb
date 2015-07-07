@@ -1,19 +1,20 @@
-<h1>Tour Cities</h1>
+<div class='container'>
+  <h2>Tour Cities</h2>
 
 
-<div class='media'>
-  <div class='media-body'>
-    <table class='table table-hover'>
-      <thead>
-        <tr>
-          <th>City</th>
-          <th>Country</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+  <div class='media'>
+    <div class='media-body'>
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Country</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <% @tour_cities.each do |tour_city| %>
+        <tbody>
+          <% @tour_cities.each do |tour_city| %>
           <tr>
             <td><%= tour_city.city %></td>
             <td><%= tour_city.country %></td>
@@ -21,12 +22,13 @@
             <td><%= link_to 'Edit', edit_tour_city_path(tour_city), class: 'btn btn-mini btn-success' %></td>
             <td><%= link_to 'Destroy', tour_city, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <br>
+
+  <%= link_to 'New Tour city', new_tour_city_path %>
 </div>
-
-<br>
-
-<%= link_to 'New Tour city', new_tour_city_path %>

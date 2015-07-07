@@ -1,22 +1,23 @@
-<h1>Tour Prices</h1>
+<div class='container'>
+  <h2>Tour Prices</h2>
 
 
-<div class='media'>
-  <div class='media-body'>
-    <table class='table table-hover'>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Duration</th>
-          <th>Price adult</th>
-          <th>Price child</th>
-          <th>Currency</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+  <div class='media'>
+    <div class='media-body'>
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Duration</th>
+            <th>Price adult</th>
+            <th>Price child</th>
+            <th>Currency</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <% @tour_prices.each do |tour_price| %>
+        <tbody>
+          <% @tour_prices.each do |tour_price| %>
           <tr>
             <td><%= tour_price.name %></td>
             <td><%= tour_price.duration %></td>
@@ -27,12 +28,13 @@
             <td><%= link_to 'Edit', edit_tour_price_path(tour_price), class: 'btn btn-mini btn-success' %></td>
             <td><%= link_to 'Destroy', tour_price, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <br>
+
+  <%= link_to 'New Tour price', new_tour_price_path %>
 </div>
-
-<br>
-
-<%= link_to 'New Tour price', new_tour_price_path %>

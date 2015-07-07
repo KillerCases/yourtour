@@ -1,20 +1,21 @@
-<h1>Tour Guides</h1>
+<div class='container'>
+  <h2>Tour Guides</h2>
 
 
-<div class='media'>
-  <div class='media-body'>
-    
-    <table class='table table-hover'>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+  <div class='media'>
+    <div class='media-body'>
 
-      <tbody>
-        <% @tour_guides.each do |tour_guide| %>
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @tour_guides.each do |tour_guide| %>
           <tr>
             <td><%= tour_guide.name %></td>
             <td><%= tour_guide.description %></td>
@@ -22,13 +23,14 @@
             <td><%= link_to 'Edit', edit_tour_guide_path(tour_guide), class: 'btn btn-mini btn-success' %></td>
             <td><%= link_to 'Destroy', tour_guide, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
   </div>
+
+  <br>
+
+  <%= link_to 'New Tour guide', new_tour_guide_path %>
 </div>
-
-<br>
-
-<%= link_to 'New Tour guide', new_tour_guide_path %>

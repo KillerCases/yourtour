@@ -1,37 +1,38 @@
-<div class='row'>
+<div class='container'>
+  <div class='row'>
 
-  <h1>Tours</h1>
-  <div class='pull-right range-query'>
+    <h2>Tours</h2>
+    <div class='pull-right range-query'>
       <div class='pull-left range-query search-bar'>
-            <%= form_tag tours_path, method: :get, :class => "form-inline" do %>
-              <div class='form-group'>
-                <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
-             </div>
-             <div class='form-group'>
-              <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Interest" %>
-             </div>
-              <%= submit_tag 'Search', class: 'btn search-btn'%>
-              <% end %>
+        <%= form_tag tours_path, method: :get, :class => "form-inline" do %>
+        <div class='form-group'>
+          <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
         </div>
+        <div class='form-group'>
+          <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "Interest" %>
+        </div>
+        <%= submit_tag 'Search', class: 'btn search-btn'%>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 
-</div>
+  <div class='media'>
+    <div class='media-body'>
 
-<div class='media'>
-  <div class='media-body'>
-    
-    <table class='table table-hover'>
-      <thead>
-        <tr>
-          <th>Created at</th>
-          <th>Name</th>
-          <th>Short description</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th>Created at</th>
+            <th>Name</th>
+            <th>Short description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <% @tours.each do |tour| %>
+        <tbody>
+          <% @tours.each do |tour| %>
           <tr>
             <td><%= tour.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= tour.name %></td>
@@ -40,19 +41,15 @@
             <td><%= link_to 'Edit', edit_tour_path(tour), class: 'btn btn-mini btn-success' %></td>
             <td><%= link_to 'Destroy', tour, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
+  <br>
+
+  <%= link_to 'New Tour', new_tour_path %>
+
 </div>
-<br>
-
-<h3> Import Tours </h3>
-<%= form_tag import_tours_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Upload Tours" %>
-<% end %>
-
-<%= link_to 'New Tour', new_tour_path %>
 
 
