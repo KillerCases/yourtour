@@ -1,21 +1,10 @@
-require 'zendesk_api'
-require 'json'
-
 class TicketsController < ApplicationController
   def new
-    if user_signed_in?
-      #@profile = Profile.where(:email => current_user.email).first
-      if @profile = Profile.where(:email => current_user.email).first
-#         @game = @profile.games
-      else
-        []
-      end
-    end
+
   end
 
   def create
     @email = params[:email]
-#     @game_name = Game.find(params[:game]).name if user_signed_in?
     @ticket = create_ticket
   end
 
@@ -42,13 +31,12 @@ class TicketsController < ApplicationController
   private
 
   def create_ticket
-    options = {:subject => params[:subject], :comment => { :value => params[:description] }, :requester => { :email => @email, :name => params[:name] }}
+    options = {:subject => params[:subject], :comment => { :value => params[:description] }, :requester => { :email => @email, :name => params[:full_name] }}
     if params[:subject].blank? or params[:description].blank? or params[:email].blank?
       flash[:alert] = "Please complete all fields."
       redirect_to new_ticket_path
     else
-#       options[:requester][:name] = params[:full_name]
-          ZendeskAPI::Ticket.create(client, options)
+      ZendeskAPI::Ticket.create(client, options)
     end
 
   end
