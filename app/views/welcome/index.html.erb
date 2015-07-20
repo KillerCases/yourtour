@@ -30,8 +30,6 @@
     </div>
   </div>
   <div class="row search-panel">
-<!--     <div class='col-md-1'></div> -->
-<!--     <div class="col-md-12 "> -->
       <div class='search-panel-wrapper'>
       <%= form_tag welcome_index_path, method: :get, :class => "navbar-form" do %>
         <div class='input-placeholder-group'>
@@ -55,9 +53,6 @@
         <%= submit_tag 'Search', class: 'btn search-btn'%>
       <% end %>
     </div>
-<!--     </div> -->
-<!--     <div class="col-md-1">
-    </div> -->
   </div>
   
   <div class='container-fluid'>
@@ -91,7 +86,11 @@
         <p><strong>Guides</strong></p>
         <p><%= link_to "Apply", welcome_guide_path %></p>
       </div>
-      <div class="col-md-9"></div>
+      <div class="col-md-9">
+        <a href="https://facebook.com/querlatours"><img alt= 'Facebook' src="/assets/m_social_1_1.png" height= '100' width='100'/></a>
+        <a href="https://twitter.com/querlatours">twitter</a>
+        <a href="https://instagram.com/querlatours">insta</a>
+    </div>
   </div>
   
 
