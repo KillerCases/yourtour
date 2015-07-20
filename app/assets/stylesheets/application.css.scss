@@ -113,8 +113,6 @@ h3{
 /* HOMEPAGE               
 /*******************************************/
 
-
-
 .header-panel{
   margin-top: 0.5%;
   margin-bottom: 0%;
@@ -125,10 +123,11 @@ h3{
   padding-bottom: 0%;
   margin-top: 1%;
   margin-bottom: 1%;
-  background-color: rgba(32,178,170,0.6);
+  background-color: rgba(1,145,200,0.6);
   opacity: 1;
   color: white;
   height: 80px;
+  text-align: center;
 /*   rgba(128,0,0,0.6); */
 }
 
@@ -136,9 +135,10 @@ h3{
     float:left;
 }
 
-.searchbar-input-wrapper{
+.search-panel-wrapper{
   margin: 0 auto;
   padding-left:50px;
+  display:inline-block;
 }
 
 .nav .user{
@@ -190,19 +190,19 @@ p {
 /*******************************************/
 
 .button_green{
-  background-color:rgba(32,178,170,0.6);
+  background-color:rgba(116,194,225,0.6);
   color: white;
   float: right;
 }
 
 .button_pink {
-  background-color:rgba(236,21,89,1);
+  background-color:rgba(140,137,132,1);
   color:white;
 }
 
 .info_bottom{
   display:block;
-  background:rgba(236,21,89,1);
+  background:rgba(140,137,132,1);
   padding: 10px;
 }
 
@@ -210,6 +210,7 @@ p {
   color:white;
   left:50px;
 }
+
 
 
 

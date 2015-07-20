@@ -11,6 +11,7 @@
     
     
     <div class="title">
+<!--       <h1> Querla</h1> -->
         <h1>Your Local Guide.</h1>
         <h2>Discover the world the way others see it</h2>
         <%= link_to "#how", "data-toggle" => "modal" do %>
@@ -29,10 +30,10 @@
     </div>
   </div>
   <div class="row search-panel">
-    <div class='col-md-2'></div>
-    <div class="col-md-8 ">
+<!--     <div class='col-md-1'></div> -->
+<!--     <div class="col-md-12 "> -->
+      <div class='search-panel-wrapper'>
       <%= form_tag welcome_index_path, method: :get, :class => "navbar-form" do %>
-      <div class="searchbar-input-wrapper">
         <div class='input-placeholder-group'>
           <div class='input-group'>
             <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "What interests you?" %>
@@ -52,11 +53,11 @@
           </div>
         </div>
         <%= submit_tag 'Search', class: 'btn search-btn'%>
-      </div>
       <% end %>
     </div>
-    <div class="col-md-4">
-    </div>
+<!--     </div> -->
+<!--     <div class="col-md-1">
+    </div> -->
   </div>
   
   <div class='container-fluid'>
@@ -71,7 +72,6 @@
         <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %>
           <div class='caption'>
             <h4><%= tour.name %></h4>
-            <p><%= tour.short_description %></p>
           </div>
         </div>
       </div>

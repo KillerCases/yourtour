@@ -14,7 +14,7 @@
 
   <%= f.text_field :name, placeholder: "Enter tour name" %>
   <%= f.text_field :short_description, placeholder: "Enter short description" %>
-  <%= f.text_field :long_description, placeholder: "Enter long description" %>
+  <%= f.text_area :long_description, placeholder: "Enter long description" %>
   <%= f.collection_select :tour_guide_id, TourGuide.all, :id, :name %>
   <%= f.collection_select :tour_city_id, TourCity.all, :id, :city %>
   <%= f.text_field :meeting_point_description, placeholder: "Enter description of meeting place" %>

@@ -28,7 +28,7 @@ class Tour < ActiveRecord::Base
     thumb: '100x100>',
     square: '420x420#',
     medium: '314x344#',
-    long: '1410x344#'
+    long: '1390x344#'
   }
   
   
