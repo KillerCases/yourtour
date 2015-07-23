@@ -71,27 +71,48 @@
         </div>
       </div>
 		<% end %>
+  </div> 
   </div>
     
-  </div>
-    
-  <div class = 'row info_bottom'>  
-      <div class="col-md-1"></div>
-      <div class="col-md-1">
-        <p><strong>Company</strong></p>
-        <p><%= link_to "About", welcome_about_path %></p>
-        <p><%= link_to "Contact", new_ticket_path %></p>
+  <div class = 'row info_bottom'> 
+    <div class='row'></div>
+    <div class='row'>
+      <div class="col-md-3"></div>
+      <div class="col-md-2">    
+        <ul>
+          <li><h4>Company</h4></li>
+          <li><%= link_to "About", welcome_about_path %></li>
+          <li><%= link_to "FAQ", welcome_faq_path %></li>
+          <li><%= link_to "Become a Guide", welcome_guide_path %></li>
+        </ul>
       </div>
-      <div class="col-md-1">
-        <p><strong>Guides</strong></p>
-        <p><%= link_to "Apply", welcome_guide_path %></p>
+      <div class="col-md-2">    
+        <ul>
+          <li><h4>Contact</h4></li>
+          <li><address><a href="mailto:support@querla.com">support@querla.com</a></address></li>
+        </ul>
       </div>
-      <div class="col-md-9">
-        <a href="https://facebook.com/querlatours"><img alt= 'Facebook' src="/assets/m_social_1_1.png" height= '100' width='100'/></a>
-        <a href="https://twitter.com/querlatours">twitter</a>
-        <a href="https://instagram.com/querlatours">insta</a>
+      <div class="col-md-2">    
+        <ul>
+          <li><h4>Address</h4></li>
+          <li>Coming soon!</li>
+        </ul>
+      </div>
+    </div>
+    <div class= 'row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-6'><hr></div>
+      <div class='col-md-3'></div>
+    </div>
+   `<div class = 'row social-wrapper'> 
+     <h4>Follow us on</h4>
+      <div class="col-md-12">
+        <a href="https://facebook.com/querlatours"><img alt= 'Facebook' src="/assets/social_facebook_cropped.png" height= '45' width='45'/></a>
+        <a href="https://twitter.com/querlatours"><img alt= 'Twitter' src="/assets/social_twitter_cropped.png" height= '45' width='45'/></a>
+        <a href="https://instagram.com/querlatours"><img alt= 'Instagram' src="/assets/social_instagram_cropped.png" height= '45' width='45'/></a>
+    </div>
+    </div>
     </div>
   </div>
   
 
-</div>

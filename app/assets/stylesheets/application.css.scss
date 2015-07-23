@@ -148,6 +148,8 @@ h3{
   color:#428bca;
 }
 
+
+
 /******************************************
 /* HOMEPAGE -- CINEGRAPH               
 /*******************************************/
@@ -203,12 +205,27 @@ p {
 .info_bottom{
   display:block;
   background:rgba(140,137,132,1);
-  padding: 10px;
+  padding: 20px 0px 20px 0px;
+  text-align: center;
 }
 
-.info_bottom p, .info_bottom a{
+.info_bottom li, .info_bottom a, hr{
+  color:rgba(41,41,41,1);
+  text-align: left;
+}
+
+.info_bottom a:hover{
   color:white;
-  left:50px;
+}
+
+.social_wrapper{
+  display:inline-block;
+  margin: 0 auto;
+}
+
+.info_bottom ul
+{
+    list-style-type: none;
 }
 
 
