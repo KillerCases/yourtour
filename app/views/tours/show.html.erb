@@ -96,7 +96,7 @@
       </div>
       <div class='col-md-6'>
           <ul>
-              <% @calendars.sort_by{|t| - t.calendar_datetime.to_i}[0..9].each do |calendar| %>
+              <% @calendars.sort_by{|t| - t.calendar_datetime.to_i}[0..2].each do |calendar| %>
                   <% if user_signed_in? %>
                       <li><%= link_to (calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p")), new_booking_path(:tour_id => @tour.id, :calendar_id => calendar.id) %></li>
                   <% else %>
@@ -148,7 +148,7 @@
       </div>
       <div class='col-md-6'>
           <ul>
-          <% for tour in @tour.nearbys(10) %>
+          <% for tour in @tour.nearbys(5) %>
             <li><%= link_to tour.name, tour %> (<%= tour.distance.round(2) %> miles)</li>
           <% end %>
           </ul>
