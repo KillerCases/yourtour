@@ -20,15 +20,11 @@
     <ul class='nav nav-tabs'>
 
       <%= link_to welcome_index_path do %>
-      <img alt="Logo" src="/assets/logo_test_6.png" height= '50' width=100/>
-       <img alt="Logo" src="/assets/logo_test_5.png" height= '50' width=100/>
-       <img alt="Logo" src="/assets/logo_test_4.png" height= '50' width=100/>
-      <img alt="Logo" src="/assets/logo_test_3.png" height= '50' width=100/>
+        <img class='logo' alt="Logo" src="/assets/Querla-01-Sized.png" height=44 width=180/>
       <% end %>
 
       <% if can? :manage, @tour %>
       <li><%= link_to "Admin", welcome_admin_path %></li>
-      <li><%= link_to "Querla" %></li>
       <% end %>
 
         <li class='user'>
