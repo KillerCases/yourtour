@@ -19,9 +19,7 @@
 
     <ul class='nav nav-tabs'>
 
-      <%= link_to welcome_index_path do %>
-        <img class='logo' alt="Logo" src="/assets/Querla-01-Sized.png" height=44 width=180/>
-      <% end %>
+      <li><%= link_to "Home", welcome_index_path %></li>
 
       <% if can? :manage, @tour %>
       <li><%= link_to "Admin", welcome_admin_path %></li>
