@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row header-panel">
     
-
     
     <%= link_to welcome_guide_path do %>
     <div class="btn button_green">
@@ -9,16 +8,18 @@
     </div>
     <% end %>
     
-    
-    <div class="title">
-<!--       <h1> Querla</h1> -->
-        <h1>Your Local Guide.</h1>
-<!--         <img alt="Logo" src="/assets/logo_test_9.png" height=178 width=654/> -->
-        <h2>Discover the world the way others see it</h2>
-        <%= link_to "#how", "data-toggle" => "modal" do %>
+            <%= link_to "#how", "data-toggle" => "modal" do %>
         <div class="btn button_pink">
           <h4>How it Works</h4>
         </div>
+    
+    
+    <div class="title">
+<!--       <h1> Querla</h1> -->
+<!--         <h1>Your Local Guide.</h1> -->
+        <img alt="Logo" src="/assets/Querla-01-Sized.png" height=249 width=1000/>
+<!--         <h2>Discover the world the way others see it</h2> -->
+
         <% end %>
     </div>
     
@@ -82,9 +83,8 @@
       <div class="col-md-2">    
         <ul>
           <li><h4>Company</h4></li>
-          <li><%= link_to "About", welcome_about_path %></li>
-          <li><%= link_to "FAQ", welcome_faq_path %></li>
           <li><%= link_to "Become a Guide", welcome_guide_path %></li>
+          <li><a href="https://querlatours.zendesk.com/hc/en-us">FAQ</a><li>
         </ul>
       </div>
       <div class="col-md-2">    

@@ -13,7 +13,9 @@
 /*******************************************/
 /* Grey: rgba(32,178,170,0.6);
 Green: rgba(32,178,170,0.6);
-Pink: rgba(236,21,89,1); */
+Pink: rgba(236,21,89,1);
+Search  background-color: rgba(1,145,200,0.6);
+*/
 
 
 /******************************************
@@ -127,7 +129,7 @@ h3{
   padding-bottom: 0%;
   margin-top: 1%;
   margin-bottom: 1%;
-  background-color: rgba(1,145,200,0.6);
+  background-color: rgb(179,64,144);
   opacity: 1;
   color: white;
   height: 80px;
@@ -164,7 +166,8 @@ h3{
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0)
     ),
-    url(https://ia601004.us.archive.org/5/items/SneakersOnPowerLines/Powerline-Sneakers-960.gif);
+/*     url(https://ia601004.us.archive.org/5/items/SneakersOnPowerLines/Powerline-Sneakers-960.gif); */
+       url();
   background-size: cover;
   height: 50vh;
 }
@@ -174,7 +177,7 @@ h3{
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: black;
   text-align: center;
 }
 h1 {
@@ -204,6 +207,7 @@ p {
 .button_pink {
   background-color:rgba(140,137,132,1);
   color:white;
+  float:left;
 }
 
 .info_bottom{
