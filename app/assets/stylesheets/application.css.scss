@@ -27,15 +27,15 @@ body{
 }
 
 h1{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica', sans-serif;
 }
 
 h2{
-    font-family: 'Open Sans', sans-serif;  
+    font-family: 'Helvetica', sans-serif;  
 }
 
 h3{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica', sans-serif;
 }
 
 .logo{
@@ -167,9 +167,11 @@ h3{
       rgba(0, 0, 0, 0)
     ),
 /*     url(https://ia601004.us.archive.org/5/items/SneakersOnPowerLines/Powerline-Sneakers-960.gif); */
-       url();
+       url(/assets/test.png);
   background-size: cover;
-  height: 40vh;
+  opacity:0.9;
+/*   background-color: rgba(179,64,144,0.2); */
+  height: 50vh;
 }
 
 .title {
@@ -181,10 +183,11 @@ h3{
   text-align: center;
 }
 h1 {
-  text-transform: uppercase;
+/*   text-transform: uppercase; */
   margin: 0;
-  font-size: 5rem;
+  font-size: 6rem;
   white-space: nowrap;
+  color: white;
 }
 h2 {
   font-size: 3rem;
