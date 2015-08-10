@@ -38,6 +38,11 @@ h3{
     font-family: 'Open Sans', sans-serif;
 }
 
+.space{
+  display:block;
+  height:20px
+}
+
 .logo{
   margin: 5px auto;
 }
@@ -129,7 +134,7 @@ h3{
   padding-bottom: 0%;
   margin-top: 1%;
   margin-bottom: 1%;
-  background-color: rgb(179,64,144);
+  background-color: rgba(179,64,144,0.5);
   opacity: 1;
   color: white;
   height: 80px;
@@ -167,25 +172,27 @@ h3{
       rgba(0, 0, 0, 0)
     ),
 /*     url(https://ia601004.us.archive.org/5/items/SneakersOnPowerLines/Powerline-Sneakers-960.gif); */
-       url();
+       url("/assets/test2.jpg");
   background-size: cover;
-  height: 50vh;
+  height: 70vh;
 }
 
 .title {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
+  display:block;
+  padding:5% 0 5% 0;
+  color: white;
   text-align: center;
+/*     background-color: rgba(179,64,144,0.5); */
 }
-h1 {
+
+.title h1 {
   text-transform: uppercase;
   margin: 0;
-  font-size: 5rem;
-  white-space: nowrap;
+  font-size: 7rem;
+/*   white-space: nowrap; */
+  font-weight: 2000;
 }
+
 h2 {
   font-size: 3rem;
 }

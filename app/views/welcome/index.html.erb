@@ -1,65 +1,59 @@
 <div class="container">
   <div class="row header-panel">
     
-    
-    <%= link_to welcome_guide_path do %>
-    <div class="btn button_green">
-          <h4>Be a Guide</h4>
-    </div>
-    <% end %>
-    
-            <%= link_to "#how", "data-toggle" => "modal" do %>
+    <div class='container row'>
+        <%= link_to welcome_guide_path do %>
+        <div class="btn button_green">
+              <h4>Be a Guide</h4>
+        </div>
+        <% end %>
+
+        <%= link_to "#how", "data-toggle" => "modal" do %>
         <div class="btn button_pink">
           <h4>How it Works</h4>
         </div>
-    
-    
-    <div class="title">
-<!--       <h1> Querla</h1> -->
-<!--         <h1>Your Local Guide.</h1> -->
-        <img alt="Logo" src="/assets/Querla-01-Sized.png" height=249 width=1000/>
-<!--         <h2>Discover the world the way others see it</h2> -->
-
         <% end %>
     </div>
     
-    <div class="col-lg-12">
+    <div class='row title'>
+<!--       <h1> Querla</h1> -->
+        <h1>Walking tours for curious people</h1>
+<!--         <img alt="Logo" src="/assets/Querla-01-Sized.png" height=249 width=1000/> -->
+        <h2>Discover the world the way others see it</h2>
     </div>
-  </div>
-  
-  <div class="row">
-    <div class="span12">
-    </div>
-  </div>
-  <div class="row search-panel">
+
+    <div class="row search-panel">
       <div class='search-panel-wrapper'>
-      <%= form_tag welcome_index_path, method: :get, :class => "navbar-form" do %>
+        <%= form_tag welcome_index_path, method: :get, :class => "navbar-form" do %>
         <div class='input-placeholder-group'>
           <div class='input-group'>
             <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => "What interests you?" %>
-          </div> 
-        </div>
+          </div><!-- input-group -->
+        </div><!-- input-placeholder-group -->
         <div class='input-placeholder-group'>
           <div class='input-group'>
             <%= text_field_tag :search_location, params[:search_location], class: 'form-control', :placeholder => "Location" %>
-          </div>
-        </div>
+          </div><!-- input-group -->
+        </div><!-- input-placeholder-group -->
         <div class='input-placeholder-group'>
           <div class="input-daterange input-group input-contrast" id="datepicker">
             <!--           <input type="text" class="input-sm form-control" name="start" /> -->
             <%= text_field_tag :start,  params[:start], class: 'input form-control', placeholder: "From"%>
             <span class="input-group-addon">to</span>
             <%= text_field_tag :end,  params[:start], class: 'input form-control', placeholder: "To"%>
-          </div>
-        </div>
+          </div><!-- input-daterange input-group input-contrast -->
+        </div><!-- input-placeholder-group -->
         <%= submit_tag 'Search', class: 'btn search-btn'%>
-      <% end %>
-    </div>
-  </div>
+        <% end %>
+      </div><!-- search-panel-wrapper -->
+    </div><!-- row search-panel -->
+  </div><!-- row header-panel -->
+
   
-  <div class='container-fluid'>
+<!--   <div class='container-fluid'> -->
   
   <div class='row'>
+    <div class="space"></div>
   </div>
   
   <div class="row ">
