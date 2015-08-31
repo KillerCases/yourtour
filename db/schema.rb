@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831175758) do
+ActiveRecord::Schema.define(version: 20150831182319) do
 
   create_table "bookings", force: true do |t|
     t.datetime "created_at"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20150831175758) do
     t.integer  "tour_guide_id"
     t.integer  "tour_city_id"
     t.integer  "tour_price_id"
-    t.text     "long_description",          limit: 255
     t.float    "latitude"
     t.float    "longitude"
     t.string   "meeting_point_description"
@@ -85,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150831175758) do
     t.integer  "tour_image_file_size"
     t.datetime "tour_image_updated_at"
     t.string   "address"
+    t.text     "long_description"
   end
 
   create_table "users", force: true do |t|
