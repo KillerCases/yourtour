@@ -10,7 +10,7 @@ TourCity.delete_all
 TourCity.create([{city:'Boston', country:'USA'}, {city: "New York", country:"USA"}, {city: "San Francisco", country:"USA"}, {city: "London", country:"UK"}])
 
 TourGuide.delete_all
-TourGuide.create([{name:'Tamar', description:'Political expert'}, {name: "Alice", description:"Artist in Residence"}, , {name: "Pete", description:"Born and bred Boston local"}])
+TourGuide.create([{name:'Tamar', description:'Political expert'}, {name: "Alice", description:"Artist in Residence"}, {name: "Pete", description:"Born and bred Boston local"}])
 
 TourPrice.delete_all
 TourPrice.create([{name:'USA - Basic', duration: '1 hour', price_adult:'20', price_child:'5', currency:'USD'}, {name:'UK - Basic', duration: '1 hour', price_adult:'20', price_child:'5', currency:'GBP'}])
