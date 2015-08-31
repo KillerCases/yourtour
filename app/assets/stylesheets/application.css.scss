@@ -176,7 +176,7 @@ h3{
       rgba(0, 0, 0, 0)
     ),
 /*     url(https://ia601004.us.archive.org/5/items/SneakersOnPowerLines/Powerline-Sneakers-960.gif); */
-       url("/assets/test7.jpg");
+       url("/assets/homepage.jpg");
   background-size: cover;
   height: 60vh;
 }
@@ -195,7 +195,7 @@ h3{
 /*   margin: 0; */
   font-size: 7rem;
 /*   white-space: nowrap; */
-  font-weight: 2000;
+  font-weight: 900;
 }
 
 h2 {
@@ -210,16 +210,22 @@ p {
 /* CUSTOM BUTTON               
 /*******************************************/
 
-.button_left{
+.button_right{
   background-color:rgba(116,194,225,0.6);
   color: white;
   float: right;
 }
 
-.button_right {
+.button_left {
   background-color:rgba(140,137,132,1);
   color:white;
   float:left;
+}
+
+.button_pink{  
+  background-color: rgba(179,64,144,1);
+  color:white;
+  float:left; 
 }
 
 .info_bottom{

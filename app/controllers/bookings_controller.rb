@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
       @calendar_request = CalendarRequest.new(tour_id: params[:tour_id], user_id: current_user.id)
       @calendar_request.save
       redirect_to tour_path(:id => @calendar_request.tour_id)
-      flash[:alert] = "Hey there! No dates are scheduled for this tour. We need to change that."
+      flash[:alert] = "No dates are scheduled for this tour. Well let you know once that changes."
     else
         if params[:calendar_id]
           @calendar_selected = Calendar.find(params[:calendar_id])
