@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Yourtour</title>
+  <title>Querla Tours</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://js.stripe.com/v2/", 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -33,7 +33,7 @@
             <li role="presentation" class="dropdown">
               <% if current_user %>
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                  Welcome <%= "#{current_user.name}" %><%= image_tag current_user.user_image %> <span class="caret"></span>
+                Welcome <%= "#{current_user.name}"%>  <%= image_tag current_user.user_image %> <span class="caret"></span>
               </a>
                
               <ul class="dropdown-menu" role="menu">
