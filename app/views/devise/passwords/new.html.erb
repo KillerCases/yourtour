@@ -1,13 +1,18 @@
 <div class='container'>
-      <h2>Forgot your password?</h2>
-      <div class = 'col-md-2'>
-  <div class='row'>
-
-      <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-          <%= devise_error_messages! %>
-          <%= f.email_field :email, autofocus: true %>
-          <%= f.submit "Send reset instructions",  :class => 'btn btn-block button_pink' %>
-      <% end %>
+  
+    <div class='col-md-4'></div>
+    <div class='col-md-4'>
+          <h2>Forgot your password?</h2>
+          <div class='row'>
+              <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= devise_error_messages! %>
+                  <%= f.email_field :email, autofocus: true %>
+                  <%= f.submit "Send reset instructions",  :class => 'btn btn-block button_pink' %>
+              <% end %>
+          </div>
     </div>
-  </div>
+  <div class='col-md-4'></div>
+  
 </div>
+ 
+
