@@ -4,15 +4,20 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-
-          <h1>Hi <%= @user.name %>!</h1>
+          <img alt= 'Querla Tours' src="https://s3.amazonaws.com/your-tour-images/icons/Querla-03-Cropped.png" height= '45'/>
+<!--           <h1>Hi <%= @user.name %>!</h1> -->
           <h2>Your booking has been cancelled</h2>
           <hr>
-
               <p>Tour name: <%= @booking.calendar.tour.name %></p>
               <p>Date: <%= @booking.calendar.calendar_datetime.strftime(" %b-%d %Y at %I:%M%p") %></p>
               <p>We hope to see you again soon!</p>
-    <hr>
-    <p>You can view the status of your booking by logging into your account and clicking on the Bookings page at https://yourtour-heroku.herokuapp.com/bookings.</p>
+          <hr>
+          <p>You can view the status of your booking by logging into your account and clicking on the Bookings page at http://www.querla.com/bookings.</p>
+          <hr>
+          <h4>Have questions? Email <a href="mailto:support@querlatours.zendesk.com">support@querlatours.zendesk.com</a></h4>
+          <h4>Follow us on:</h4>
+          <a href="https://facebook.com/querlatours"><img alt= 'Facebook' src="https://s3.amazonaws.com/your-tour-images/icons_social/social_facebook_cropped.png" height= '30' width='30'/></a>
+          <a href="https://twitter.com/querlatours"><img alt= 'Twitter' src="https://s3.amazonaws.com/your-tour-images/icons_social/social_twitter_cropped.png" height= '30' width='30'/></a>
+          <a href="https://instagram.com/querlatours"><img alt= 'Instagram' src="https://s3.amazonaws.com/your-tour-images/icons_social/social_instagram_cropped.png" height= '30' width='30'/></a>
   </body>
 </html>
