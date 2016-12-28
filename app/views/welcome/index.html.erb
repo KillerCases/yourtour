@@ -60,12 +60,11 @@
     <% @tours.each do |tour| %>
       <div class="col-md-4">
         <div class='thumbnail'>
-      <!--   <%= link_to(image_tag(tour.tour_image.url(:square)), tour_path(tour.id)) %> -->
-        <%=  image_tag(tour.tour_image.url(:square)) %>
+        <a href="<%= tour_path(tour.id) %>"><%= image_tag(tour.tour_image.url(:square)) %>
           <div class='caption'>
             <h4><%= tour.name %></h4>
           </div>
-        </div>
+        </div></a>
       </div>
 		<% end %>
   </div> 
