@@ -23,7 +23,7 @@
         <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
             <% end -%>
         <hr>
-        <p>Already have an account? <%= link_to "Sign Up", "#sign_up", "data-toggle" => "modal", id: 'hide_sign_in', remote: true%></p>
+        <p>Don't have an account? <%= link_to "Sign Up", "#sign_up", "data-toggle" => "modal", id: 'hide_sign_in', remote: true%></p>
         <hr>
             <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-block btn-facebook" do %>
                 <i class="fa fa-facebook"></i>
