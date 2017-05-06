@@ -1,9 +1,24 @@
 
 
 <div class='container-fluid'>
+
+
+  <div class = 'row tour-header'>
+    <h1><%= @tour.name %></h1>
+  </div>
+
+
+   <div class='row'>
+  <div class='tour-image'>
+   <%= image_tag @tour.tour_image.url(:long), class: 'tour-image' %>
+</div>
+  </div>
+
+
+
   
   
-  <div class='row pad'>
+<!--   <div class='row pad'>
   </div>
 
   <div class='row'>
@@ -156,7 +171,7 @@
       <div class='col-md-4'>
       </div>  
   </div>
-  <hr>
+  <hr> -->
 
 
 
