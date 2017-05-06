@@ -171,11 +171,18 @@ h3{
 .tour-header{
   background-color: rgba(179,64,144,1);
   color: white;
+  margin-top: 1%;
   margin-bottom: 1%;
+  padding: 1% 1% 1% 1%;
 }
 
 .tour-image{
   width: 100%;
+}
+
+.tour-title {
+  display:inline-block;
+  padding:0 0 0 0;
 }
 
 /******************************************
@@ -238,6 +245,12 @@ p {
   background-color: rgba(179,64,144,1);
   color:white;
   float:left; 
+}
+
+.button_booknow{  
+  background-color: white;
+  color:rgba(179,64,144,1);
+  float:right; 
 }
 
 .info_bottom{
